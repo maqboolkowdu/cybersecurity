@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5B4FE9">
+<meta name="description" content="Firewalls, IDS/IPS, port scanning, behavior-based security, penetration testing, risk management, and how Cisco's CSIRT and security playbooks respond to incidents.">
+<title>Module 4 — Protecting the Organization | Cyber/Sec 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#FFFFFF; --bg-elev:#F6F6FA; --bg-elev2:#EDEDF3; --border:#E2E2EA;
+  --text:#14141B; --body:#3F3F49; --muted:#63636F; --muted-dim:#84848F;
+  --violet:#5B4FE9; --violet-hover:#4A3FD1; --violet-soft:rgba(91,79,233,.08); --violet-line:rgba(91,79,233,.35);
+  --red:#C22E3A; --red-soft:rgba(194,46,58,.08); --red-line:rgba(194,46,58,.28);
+  --orange:#C2660C; --orange-soft:rgba(194,102,12,.08); --orange-line:rgba(194,102,12,.28);
+  --green:#15803D; --green-soft:rgba(21,128,61,.08); --green-line:rgba(21,128,61,.28);
+  --navy:#0F1220; --navy-elev:#171B2E;
+  --sans:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}*{animation:none !important;transition:none !important;}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
+::selection{background:var(--violet);color:#fff;}
+a{color:inherit;text-decoration:none;}
+p{color:var(--body);line-height:1.75;margin:0 0 14px 0;font-size:15.5px;}
+p:last-child{margin-bottom:0;}
+ul,ol{margin:0;padding:0;color:var(--body);}
+img{max-width:100%;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,48px);}
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.02em;color:var(--text);}
+h2{font-size:clamp(26px,3.2vw,38px);line-height:1.15;}
+h3{font-size:20px;line-height:1.3;}
+.lede{font-size:16.5px;color:var(--body);max-width:620px;margin-top:14px;line-height:1.7;}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;transition:all .2s ease;cursor:pointer;border:1px solid transparent;}
+.btn-primary{background:var(--violet);color:#fff;box-shadow:0 1px 2px rgba(20,20,30,.06);}
+.btn-primary:hover{background:var(--violet-hover);transform:translateY(-1px);box-shadow:0 8px 20px -6px rgba(91,79,233,.45);}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--border);}
+.btn-ghost:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-soft);}
+.btn-sm{padding:8px 16px;font-size:13px;}
+
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);background:var(--bg-elev2);border:1px solid var(--border);padding:5px 11px;border-radius:6px;}
+.tag.violet{color:var(--violet);border-color:var(--violet-line);background:var(--violet-soft);}
+.tag.red{color:var(--red);border-color:var(--red-line);background:var(--red-soft);}
+.tag.green{color:var(--green);border-color:var(--green-line);background:var(--green-soft);}
+.tag.orange{color:var(--orange);border-color:var(--orange-line);background:var(--orange-soft);}
+
+/* ---------------- NAV ---------------- */
+#topbar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--violet),#9F86FF);width:0%;z-index:300;transition:width .1s ease;}
+header{position:fixed;top:0;left:0;right:0;z-index:250;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.wordmark{font-weight:800;font-size:15.5px;letter-spacing:-.01em;color:var(--text);display:flex;align-items:center;gap:9px;}
+.wordmark .mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(145deg,var(--violet),#8B7BFF);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.wordmark .mark svg{width:15px;height:15px;}
+.wordmark span{color:var(--violet);}
+nav.mainnav{display:flex;align-items:center;gap:4px;}
+nav.mainnav > a{font-size:13.5px;font-weight:500;color:var(--muted);transition:all .2s ease;padding:8px 12px;border-radius:7px;}
+nav.mainnav > a:hover{color:var(--text);background:var(--bg-elev);}
+nav.mainnav > a.active{color:var(--violet);background:var(--violet-soft);}
+.navcta{display:flex;align-items:center;gap:12px;}
+.navcta .btn{padding:9px 18px;font-size:13px;}
+@media (max-width:900px){nav.mainnav{display:none;}}
+
+main{padding-top:64px;}
+section{padding:88px 0;border-bottom:1px solid var(--border);}
+section.tight{padding:56px 0;}
+.shead{margin-bottom:44px;max-width:720px;}
+.shead.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+/* ---------------- HERO (home) ---------------- */
+#hero{padding-top:150px;padding-bottom:80px;border-bottom:1px solid var(--border);
+  background:radial-gradient(1000px 500px at 85% 0%,rgba(91,79,233,.08),transparent 60%),
+             radial-gradient(700px 400px at 0% 100%,rgba(194,46,58,.05),transparent 60%);}
+.hero-title{font-size:clamp(34px,4.6vw,54px);line-height:1.08;margin-bottom:18px;}
+.hero-title .hl{color:var(--violet);}
+.hero-sub{font-size:17px;color:var(--body);max-width:640px;margin-bottom:30px;line-height:1.7;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:44px;padding-top:36px;border-top:1px solid var(--border);}
+.hero-stats .stat .v{font-family:var(--mono);font-weight:700;font-size:26px;color:var(--text);}
+.hero-stats .stat .k{font-size:12.5px;color:var(--muted);margin-top:4px;}
+
+/* ---------------- MODULE HERO (module pages) ---------------- */
+#modhero{padding-top:148px;padding-bottom:56px;border-bottom:1px solid var(--border);
+  background:radial-gradient(900px 460px at 88% -10%,rgba(91,79,233,.09),transparent 60%);}
+.modhero-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:48px;align-items:start;}
+@media (max-width:940px){.modhero-grid{grid-template-columns:1fr;}}
+.modhero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
+.objective-box{background:var(--bg-elev);border:1px solid var(--border);border-left:3px solid var(--violet);border-radius:10px;padding:20px 22px;margin-top:26px;}
+.objective-box .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--violet);font-weight:700;margin-bottom:8px;}
+.objective-box p{font-size:14.5px;color:var(--text);}
+.toc-card{background:var(--navy);border-radius:14px;padding:22px;color:#fff;}
+.toc-card .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#8E8EFF;margin-bottom:14px;font-weight:700;}
+.toc-list{display:flex;flex-direction:column;gap:2px;}
+.toc-list a{display:flex;align-items:baseline;gap:10px;padding:9px 10px;border-radius:8px;font-size:13.5px;color:#C7C7DA;transition:all .15s ease;}
+.toc-list a:hover{background:rgba(255,255,255,.06);color:#fff;}
+.toc-list a .num{font-family:var(--mono);font-size:11.5px;color:#8E8EFF;flex:0 0 auto;}
+.toc-list a.summary-link{border-top:1px solid rgba(255,255,255,.1);margin-top:8px;padding-top:12px;color:#9F9FE8;}
+
+/* ---------------- TOPIC DIVIDER ---------------- */
+.topic-divider{scroll-margin-top:78px;padding:46px 0 30px 0;}
+.topic-divider .num{font-family:var(--mono);font-size:13px;color:var(--violet);font-weight:700;background:var(--violet-soft);border:1px solid var(--violet-line);padding:6px 14px;border-radius:100px;display:inline-block;margin-bottom:16px;}
+.topic-divider h2{font-size:clamp(24px,3vw,32px);}
+.topic-divider .sub{color:var(--muted);font-size:14.5px;margin-top:8px;max-width:640px;}
+
+/* ---------------- CONTENT CARD ---------------- */
+.content-block{scroll-margin-top:78px;padding:34px 0;border-top:1px solid var(--border);}
+.content-block:first-of-type{border-top:none;}
+.content-block h3{margin-bottom:14px;}
+.content-block .tiny-label{font-family:var(--mono);font-size:11px;color:var(--muted-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.content-block .body-col{max-width:760px;}
+
+.sub-heading{font-weight:700;font-size:14.5px;color:var(--text);margin:18px 0 8px 0;}
+.sub-heading:first-child{margin-top:0;}
+
+ul.plain-list{display:flex;flex-direction:column;gap:9px;margin:12px 0;}
+ul.plain-list li{list-style:none;color:var(--body);font-size:15px;line-height:1.65;display:flex;gap:10px;}
+ul.plain-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--violet);flex:0 0 auto;margin-top:9px;}
+ul.plain-list li.nested{padding-left:22px;font-size:14px;}
+ul.plain-list li.nested::before{background:var(--muted-dim);width:4px;height:4px;}
+
+ul.check-list{display:flex;flex-direction:column;gap:9px;margin:12px 0;}
+ul.check-list li{list-style:none;color:var(--body);font-size:14.5px;display:flex;gap:10px;font-family:var(--mono);line-height:1.5;}
+ul.check-list li::before{content:'✓';color:var(--green);font-weight:700;flex:0 0 auto;}
+
+/* ---------------- CARD GRIDS (enumerable concepts) ---------------- */
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px;}
+.card-grid.cols-3{grid-template-columns:repeat(3,1fr);}
+@media (max-width:820px){.card-grid,.card-grid.cols-3{grid-template-columns:1fr;}}
+.concept-card{background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;padding:22px;transition:border-color .2s ease,transform .2s ease;}
+.concept-card:hover{border-color:var(--violet-line);transform:translateY(-2px);}
+.concept-card .icon{width:38px;height:38px;border-radius:9px;background:var(--violet-soft);color:var(--violet);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-bottom:14px;font-family:var(--mono);}
+.concept-card.red .icon{background:var(--red-soft);color:var(--red);}
+.concept-card.orange .icon{background:var(--orange-soft);color:var(--orange);}
+.concept-card.green .icon{background:var(--green-soft);color:var(--green);}
+.concept-card h4{font-size:15px;margin-bottom:8px;}
+.concept-card p{font-size:13.5px;margin-bottom:0;}
+
+/* ---------------- CALLOUTS ---------------- */
+.callout{border-radius:12px;padding:20px 22px;margin:20px 0;border:1px solid var(--border);background:var(--bg-elev);display:flex;gap:14px;}
+.callout .glyph{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;font-family:var(--mono);}
+.callout .ctext{flex:1;}
+.callout .clabel{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:700;margin-bottom:6px;}
+.callout p{font-size:14.5px;margin-bottom:0;}
+.callout.example{background:var(--orange-soft);border-color:var(--orange-line);}
+.callout.example .glyph{background:var(--orange);color:#fff;}
+.callout.example .clabel{color:var(--orange);}
+.callout.warning{background:var(--red-soft);border-color:var(--red-line);}
+.callout.warning .glyph{background:var(--red);color:#fff;}
+.callout.warning .clabel{color:var(--red);}
+.callout.tip{background:var(--green-soft);border-color:var(--green-line);}
+.callout.tip .glyph{background:var(--green);color:#fff;}
+.callout.tip .clabel{color:var(--green);}
+.callout.info{background:var(--violet-soft);border-color:var(--violet-line);}
+.callout.info .glyph{background:var(--violet);color:#fff;}
+.callout.info .clabel{color:var(--violet);}
+
+/* ---------------- SCENARIO ---------------- */
+.scenario{background:var(--navy);color:#fff;border-radius:14px;padding:26px 28px;margin:18px 0;}
+.scenario .stag{font-family:var(--mono);font-size:11px;color:#8E8EFF;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:10px;}
+.scenario p{color:#D3D3E4;font-size:14.5px;margin-bottom:10px;}
+.scenario p:last-child{margin-bottom:0;}
+
+/* ---------------- STEPS ---------------- */
+.steps{display:flex;flex-direction:column;gap:0;margin-top:16px;}
+.step{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--border);}
+.step:first-child{border-top:none;padding-top:0;}
+.step .stepnum{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--violet);color:#fff;font-family:var(--mono);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;}
+.step .steptext h4{font-size:14.5px;margin-bottom:5px;}
+.step .steptext p{font-size:14px;}
+
+/* ---------------- TABLE ---------------- */
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;margin:18px 0;}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px;background:#fff;}
+thead th{text-align:left;padding:14px 18px;background:var(--bg-elev);color:var(--muted);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border);}
+tbody td{padding:14px 18px;border-bottom:1px solid var(--border);color:var(--body);vertical-align:top;line-height:1.6;}
+tbody td:first-child{color:var(--text);font-weight:600;white-space:nowrap;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover{background:var(--violet-soft);}
+
+/* ---------------- QUICK CHECK QUIZ ---------------- */
+.quickcheck{background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;padding:24px 26px;margin:22px 0;}
+.quickcheck .qtag{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--violet);font-weight:700;margin-bottom:12px;}
+.quickcheck .qtext{font-weight:700;font-size:15px;margin-bottom:14px;color:var(--text);}
+.qoptions{display:flex;flex-direction:column;gap:8px;}
+.qoption{all:unset;cursor:pointer;display:block;padding:12px 16px;border-radius:9px;border:1px solid var(--border);background:#fff;font-size:14px;color:var(--body);transition:all .15s ease;}
+.qoption:hover{border-color:var(--violet-line);background:var(--violet-soft);}
+.qoption.correct{border-color:var(--green);background:var(--green-soft);color:var(--text);font-weight:600;}
+.qoption.incorrect{border-color:var(--red);background:var(--red-soft);color:var(--text);}
+.qexplain{display:none;margin-top:12px;padding:12px 14px;border-radius:9px;background:#fff;border:1px solid var(--border);font-size:13.5px;color:var(--body);}
+.qexplain.show{display:block;}
+.qexplain b{color:var(--text);}
+
+/* ---------------- MODULE INDEX CARDS (home page) ---------------- */
+.module-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px;}
+.module-card{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;padding:26px 28px;transition:all .2s ease;}
+.module-card:hover{border-color:var(--violet-line);transform:translateY(-2px);box-shadow:0 16px 32px -18px rgba(91,79,233,.3);}
+.module-card .modnum{font-family:var(--mono);font-weight:800;font-size:26px;color:var(--violet);background:var(--violet-soft);border:1px solid var(--violet-line);border-radius:12px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.module-card h3{font-size:18px;margin-bottom:6px;}
+.module-card p{font-size:13.5px;margin-bottom:10px;max-width:600px;}
+.module-card .mtopics{display:flex;gap:8px;flex-wrap:wrap;}
+.module-card .mtopics span{font-family:var(--mono);font-size:11px;color:var(--muted-dim);background:var(--bg-elev2);padding:4px 9px;border-radius:6px;}
+.module-card .go{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--violet);white-space:nowrap;}
+@media (max-width:700px){.module-card{grid-template-columns:auto 1fr;}.module-card .go{grid-column:1 / -1;justify-content:flex-start;padding-top:6px;border-top:1px solid var(--border);margin-top:4px;}}
+
+/* ---------------- TRUST / FEATURE GRID (home) ---------------- */
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.trust-item{background:#fff;padding:28px 24px;}
+.trust-item .icon{width:34px;height:34px;border-radius:8px;background:var(--violet-soft);color:var(--violet);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.trust-item h3{font-size:14.5px;margin-bottom:8px;}
+.trust-item p{font-size:13px;}
+@media (max-width:860px){.trust-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.trust-grid{grid-template-columns:1fr;}}
+
+/* ---------------- TERMS GLOSSARY ---------------- */
+.terms-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
+.terms-grid span{font-size:13px;font-weight:500;color:var(--muted);background:var(--bg-elev);border:1px solid var(--border);padding:9px 16px;border-radius:100px;transition:all .2s ease;}
+.terms-grid span:hover{color:var(--violet);border-color:var(--violet-line);background:var(--violet-soft);}
+
+/* ---------------- SUMMARY LIST ---------------- */
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+@media (max-width:760px){.summary-grid{grid-template-columns:1fr;}}
+.summary-item{display:flex;gap:12px;background:var(--bg-elev);border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
+.summary-item .chk{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;margin-top:1px;}
+.summary-item p{font-size:13.5px;margin-bottom:0;color:var(--text);}
+
+/* ---------------- MODULE NAV FOOTER ---------------- */
+.modnav{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media (max-width:700px){.modnav{grid-template-columns:1fr;}}
+.modnav a{background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;padding:20px 22px;transition:all .2s ease;}
+.modnav a:hover{border-color:var(--violet-line);background:var(--violet-soft);}
+.modnav .direction{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-dim);margin-bottom:6px;}
+.modnav .mtitle{font-weight:700;font-size:15px;color:var(--text);}
+.modnav.next{text-align:right;}
+
+/* ---------------- FOOTER ---------------- */
+footer{padding-top:0;background:var(--bg-elev);}
+.foot-cta{padding:80px 0;text-align:center;border-bottom:1px solid var(--border);background:radial-gradient(800px 400px at 50% 0%,rgba(91,79,233,.08),transparent 60%);}
+.foot-cta h2{margin-bottom:16px;}
+.foot-cta p{max-width:480px;margin:0 auto 30px auto;font-size:15.5px;}
+.foot-cta .hero-ctas{justify-content:center;}
+.foot-cols{padding:56px 0 36px 0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
+@media (max-width:760px){.foot-cols{grid-template-columns:1fr;gap:30px;}}
+.foot-cols h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-dim);margin-bottom:16px;font-weight:700;}
+.foot-cols a{display:block;font-size:13.5px;color:var(--muted);margin-bottom:11px;transition:color .2s ease;}
+.foot-cols a:hover{color:var(--violet);}
+.foot-bottom{padding:22px 0 36px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--muted-dim);}
+.back-home-inline{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--violet);margin-bottom:20px;}
+.back-home-inline:hover{color:var(--violet-hover);}
+
+</style>
+</head>
+<body>
+
+<div id="topbar"></div>
+<header>
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L4 5v6c0 5.2 3.4 9.9 8 11 4.6-1.1 8-5.8 8-11V5l-8-3z" fill="#fff"/></svg></span>
+      CYBER<span>/</span>SEC 101
+    </a>
+    <nav class="mainnav">
+      <a href="index.html" class="">Course Home</a>
+      <a href="module1.html" class="">M1 · Cyber World</a>
+      <a href="module2.html" class="">M2 · Attacks</a>
+      <a href="module3.html" class="">M3 · Privacy</a>
+      <a href="module4.html" class="active">M4 · Defense</a>
+      <a href="module5.html" class="">M5 · Careers</a>
+    </nav>
+    <div class="navcta">
+      <a href="index.html" class="btn btn-ghost btn-sm">🏠 Home</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="modhero">
+  <div class="wrap">
+    <a href="index.html" class="back-home-inline">&larr; Course Home</a>
+    <div class="modhero-grid">
+      <div>
+        <div class="eyebrow">Module 4 of 5</div>
+        <h1 class="hero-title">Protecting the Organization</h1>
+        <div class="modhero-meta"><span class="tag violet">3 Topics</span><span class="tag violet">~55 min</span><span class="tag violet">Enterprise Security</span></div>
+        <p class="hero-sub">Individual habits matter, but organizations face attacks at a completely different scale. This module looks at the devices and technologies that guard a network perimeter, the behavior-based techniques that catch what signatures miss, and how a mature security team — using Cisco's own approach as a model — plans for, detects, and recovers from incidents.</p>
+        <div class="objective-box">
+          <div class="k">Module Objective</div>
+          <p>Explain how organizations can protect their operations against these attacks.</p>
+        </div>
+      </div>
+      <div><div class="toc-card"><div class="k">On this page</div><div class="toc-list">
+<a href="#t4-1" data-spy><span class="num">4.1</span> Cybersecurity Devices and Technologies</a>
+<a href="#t4-2" data-spy><span class="num">4.2</span> Behavior Approach to Cybersecurity</a>
+<a href="#t4-3" data-spy><span class="num">4.3</span> Cisco's Approach to Cybersecurity</a>
+<a href="#summary" class="summary-link" data-spy>&#9673; What You Learned</a>
+<a href="#terms" class="summary-link" data-spy>&#9673; Key Terms</a>
+</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="topic-divider reveal" id="t4-1">
+  <div class="wrap">
+    <span class="num">4.1</span>
+    <h2>Cybersecurity Devices and Technologies</h2>
+    <p class="sub">The hardware, software, and habits that form an organization's front line.</p>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-1-0">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.1.1</div>
+      <h3>Security Appliances</h3>
+      <p>Security appliances can be standalone devices, like a router, or software tools running on a network device. They fall into six general categories:</p>
+<div class="card-grid cols-3">
+<div class="concept-card">
+      <div class="icon">⇄</div>
+      <h4>Routers</h4>
+      <p>Primarily interconnect network segments, but usually provide basic traffic filtering to control which segments can communicate.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">🧱</div>
+      <h4>Firewalls</h4>
+      <p>Look deeper into traffic to block malicious behavior, applying sophisticated security policies to what passes through.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">🛡</div>
+      <h4>Intrusion Prevention (IPS)</h4>
+      <p>Uses traffic signatures to match and block malicious traffic and attacks.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">🔐</div>
+      <h4>VPN Systems</h4>
+      <p>Let remote employees connect through a secure, encrypted tunnel, and securely interconnect branch offices with headquarters.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">🦠</div>
+      <h4>Antimalware / Antivirus</h4>
+      <p>Use signatures or behavioral analysis to identify and block malicious code from executing.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">⚙</div>
+      <h4>Other Devices</h4>
+      <p>Web and email security appliances, decryption devices, access control servers, and security management systems.</p>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-1-1">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.1.3</div>
+      <h3>Firewalls — Types and Purpose</h3>
+      <p>A firewall controls or filters which communications are allowed in and out of a device or network — as a single-computer host-based firewall, or a standalone network-based firewall covering an entire network. As attacks have grown more sophisticated, so have firewall types:</p>
+<div class="table-wrap"><table><thead><tr>
+<th>Firewall Type</th>
+<th>What It Filters</th>
+</tr></thead><tbody>
+<tr>
+<td>Network Layer</td>
+<td>Source and destination IP addresses.</td>
+</tr>
+<tr>
+<td>Transport Layer</td>
+<td>Source and destination data ports and connection states.</td>
+</tr>
+<tr>
+<td>Application Layer</td>
+<td>A specific application, program, or service.</td>
+</tr>
+<tr>
+<td>Context-Aware Layer</td>
+<td>User, device, role, application type, and threat profile.</td>
+</tr>
+<tr>
+<td>Proxy Server</td>
+<td>Web content requests such as URLs, domain names, and media types.</td>
+</tr>
+<tr>
+<td>Reverse Proxy Server</td>
+<td>Placed in front of web servers to protect, hide, offload, and distribute access.</td>
+</tr>
+<tr>
+<td>NAT Firewall</td>
+<td>Hides or masquerades the private addresses of network hosts.</td>
+</tr>
+<tr>
+<td>Host-Based</td>
+<td>Ports and system service calls on a single computer's operating system.</td>
+</tr>
+</tbody></table></div>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-1-2">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.1.5</div>
+      <h3>Port Scanning</h3>
+      <p>Every application running on a device gets a <b>port number</b> that identifies it to both ends of a transmission. Port scanning probes a computer, server, or host for open ports — useful maliciously as reconnaissance, or harmlessly by an administrator verifying network security policy.</p>
+<p>A scan (for example with a tool like Zenmap, pointed at your computer's IP address) will report one of the following responses for each port:</p>
+<div class="card-grid cols-3">
+<div class="concept-card green">
+      <div class="icon">✓</div>
+      <h4>Open / Accepted</h4>
+      <p>Other network devices can access the port or service running on the computer.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">✕</div>
+      <h4>Closed / Denied / Not Listening</h4>
+      <p>The port or service isn't running, so it can't be exploited.</p>
+    </div>
+<div class="concept-card orange">
+      <div class="icon">⛔</div>
+      <h4>Filtered / Dropped / Blocked</h4>
+      <p>A firewall is blocking access to the port or service.</p>
+    </div>
+</div>
+<div class="callout info">
+  <div class="glyph">i</div>
+  <div class="ctext"><div class="clabel">Scanning from outside</div><p>To scan from outside your network, you run the scan against your router or firewall's public IP address (search 'what is my IP address?' to find it). If ports like 21, 22, 25, 80, 443, or 3389 come back open, port forwarding is likely enabled and you're running servers on your private network.</p></div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-1-3">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.1.7</div>
+      <h3>Intrusion Detection & Prevention Systems</h3>
+      <p><b>Intrusion Detection Systems (IDS)</b> and <b>Intrusion Prevention Systems (IPS)</b> are security measures deployed on a network to detect and prevent malicious activity.</p>
+<p>An IDS can be a dedicated device or a tool within a server, firewall, or host OS that scans traffic against a database of rules or attack signatures. On a match, it logs the detection and alerts an administrator — but takes no action itself, so it doesn't prevent the attack. Because scanning adds latency, an IDS is often placed offline, working from traffic mirrored by a switch.</p>
+<p>An <b>IPS</b> goes further — it can block or deny traffic on a positive signature match. <b>Snort</b> is one of the best-known IPS/IDS systems; its commercial version is Cisco's <b>Sourcefire</b>, which performs real-time traffic and port analysis, logging, content matching, probe/attack detection, and port scans, and integrates with third-party reporting and log-analysis tools.</p>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-1-4">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.1.8</div>
+      <h3>Real-Time Detection & Advanced Malware Protection</h3>
+      <p>Many organizations can't detect attacks until days or months after they happen. Real-time detection requires actively scanning with firewalls and IDS/IPS devices, next-generation malware detection connected to global threat centers, and context-based behavior analysis. <b>DDoS</b> attacks are especially hard to defend against in real time because they originate from thousands of zombie hosts and look like legitimate traffic.</p>
+<p>One defense against zero-day attacks and APTs is an enterprise-level malware detection solution, such as Cisco's <b>Advanced Malware Protection (AMP) Threat Grid</b>. Deployed on endpoints, as a standalone server, or on other security devices, it analyzes millions of files against hundreds of millions of known malware artifacts, giving multiple teams a global view of attacks:</p>
+<div class="card-grid ">
+<div class="concept-card">
+      <div class="icon">SOC</div>
+      <h4>Secure Operations Center</h4>
+      <p>Gathers more accurate, actionable data from Threat Grid analysis.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">IR</div>
+      <h4>Incidence Response Team</h4>
+      <p>Gains forensically useful information to analyze and understand suspicious behavior faster.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">TI</div>
+      <h4>Threat Intelligence Team</h4>
+      <p>Uses the analysis to proactively improve the organization's security infrastructure.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">SIE</div>
+      <h4>Security Infrastructure Engineering</h4>
+      <p>Consumes and acts on threat information faster — often in an automated way.</p>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-1-5">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.1.10</div>
+      <h3>Security Best Practices</h3>
+      <p>Many national and professional organizations, including NIST's Computer Security Resource Center, publish security best-practice guidelines. Some of the most important:</p>
+<ul class="check-list">
+<li>Perform a risk assessment to know and justify what you're protecting and why</li>
+<li>Create a security policy outlining rules, job roles, and employee expectations</li>
+<li>Apply physical security measures — restrict access to networking closets and server rooms, and install fire suppression</li>
+<li>Run human resources security checks, including background checks for all employees</li>
+<li>Perform and test backups regularly, including recovery drills</li>
+<li>Maintain security patches and updates across servers, clients, and network devices</li>
+<li>Employ access controls with defined user roles, privilege levels, and strong authentication</li>
+<li>Regularly test incident response with a dedicated team and emergency scenarios</li>
+<li>Implement a network monitoring, analytics, and management tool that integrates with other technologies</li>
+<li>Implement modern network security devices — next-generation routers, firewalls, and appliances</li>
+<li>Implement a comprehensive endpoint security solution with enterprise-level antimalware and antivirus</li>
+<li>Educate users through security-procedure training (the SANS Institute is a widely respected provider)</li>
+<li>Encrypt all sensitive organizational data, including email</li>
+</ul>
+    </div>
+  </div>
+</div>
+<div class="topic-divider reveal" id="t4-2">
+  <div class="wrap">
+    <span class="num">4.2</span>
+    <h2>Behavior Approach to Cybersecurity</h2>
+    <p class="sub">Catching what signatures miss by watching how traffic behaves — and stress-testing your own defenses.</p>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-2-0">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.2.1</div>
+      <h3>Behavior-Based Security</h3>
+      <p><b>Behavior-based security</b> captures and analyzes the flow of communication between a user on the local network and a local or remote destination. Any changes to normal behavior patterns are treated as anomalies that may indicate an attack.</p>
+<div class="card-grid ">
+<div class="concept-card">
+      <div class="icon">🍯</div>
+      <h4>Honeypots</h4>
+      <p>A behavior-based detection tool that lures attackers in by appealing to their predicted malicious patterns. Once inside, an administrator can capture, log, and analyze their behavior to build a better defense.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">🛰</div>
+      <h4>Cisco Cyber Threat Defense</h4>
+      <p>A security architecture using behavior-based detection and indicators for greater visibility, context, and control — aiming to answer who, what, where, when, and how an attack is happening.</p>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-2-1">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.2.2</div>
+      <h3>NetFlow</h3>
+      <p><b>NetFlow</b> gathers information about data flowing through a network — who and what devices are on it, and when and how users and devices access it. It's an essential component of behavior-based detection: switches, routers, and firewalls equipped with NetFlow report data entering, leaving, and moving through the network. NetFlow collectors then store and analyze that data to establish baseline behavior across more than 90 attributes, such as source and destination IP address.</p>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-2-2">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.2.3</div>
+      <h3>Penetration Testing</h3>
+      <p><b>Penetration testing (pen testing)</b> assesses a system, network, or organization for security vulnerabilities by actively trying to breach it — improving defenses against future attacks.</p>
+<div class="steps">
+<div class="step">
+      <div class="stepnum">1</div>
+      <div class="steptext"><h4>Planning</h4><p>Gather as much information as possible about the target — potential vulnerabilities and exploits — through passive or active surveillance (footprinting) and vulnerability research.</p></div>
+    </div>
+<div class="step">
+      <div class="stepnum">2</div>
+      <div class="steptext"><h4>Scanning</h4><p>Carry out active reconnaissance: port scanning to find access points, vulnerability scanning to find exploitable weaknesses, and enumeration to identify user, system, and admin accounts.</p></div>
+    </div>
+<div class="step">
+      <div class="stepnum">3</div>
+      <div class="steptext"><h4>Gaining Access</h4><p>Attempt to breach the system using an exploit payload, physical barrier breaches, social engineering, website or software/hardware vulnerabilities, access-control breaches, or cracking weak Wi-Fi encryption.</p></div>
+    </div>
+<div class="step">
+      <div class="stepnum">4</div>
+      <div class="steptext"><h4>Maintaining Access</h4><p>Stay inside undetected — typically via backdoors, Trojan horses, rootkits, or other covert channels — while gathering valuable data.</p></div>
+    </div>
+<div class="step">
+      <div class="stepnum">5</div>
+      <div class="steptext"><h4>Analysis & Reporting</h4><p>Deliver a report recommending product updates, policy changes, and training to improve the organization's security.</p></div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-2-3">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.2.5</div>
+      <h3>Impact Reduction</h3>
+      <p>No security practice is foolproof, so organizations must be ready to contain damage quickly if a breach occurs.</p>
+<ul class="check-list">
+<li>Communicate the issue — internally to employees with a clear call to action, and externally to clients through direct communication and official announcements</li>
+<li>Be sincere and accountable — respond honestly and take responsibility where the organization is at fault</li>
+<li>Provide the details — explain why the breach occurred and what was compromised; typically cover client costs for related identity theft services</li>
+<li>Find the cause — bring in forensics experts if needed to fully understand what happened</li>
+<li>Apply lessons learned — make sure forensic findings actually change future practice</li>
+<li>Check, and check again — attackers often leave a backdoor for future access, so verify systems are genuinely clean</li>
+<li>Educate — raise awareness and train employees, partners, and clients to prevent future breaches</li>
+</ul>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-2-4">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.2.6</div>
+      <h3>What Is Risk Management?</h3>
+      <p><b>Risk management</b> is the formal process of continuously identifying and assessing risk to reduce the impact of threats and vulnerabilities. You cannot eliminate risk — only determine acceptable levels by weighing a threat's impact against the cost of mitigating it. As a rule, the cost of protection should never exceed the value of the asset being protected.</p>
+<div class="steps">
+<div class="step">
+      <div class="stepnum">1</div>
+      <div class="steptext"><h4>Frame the Risk</h4><p>Identify threats that increase risk — processes, products, attacks, service disruption, reputational damage, legal liability, or loss of intellectual property.</p></div>
+    </div>
+<div class="step">
+      <div class="stepnum">2</div>
+      <div class="steptext"><h4>Assess the Risk</h4><p>Determine how severe each threat is, prioritizing by financial impact (quantitative) or operational effect (qualitative).</p></div>
+    </div>
+<div class="step">
+      <div class="stepnum">3</div>
+      <div class="steptext"><h4>Respond to the Risk</h4><p>Develop an action plan detailing where risk can be eliminated, mitigated, transferred, or accepted.</p></div>
+    </div>
+<div class="step">
+      <div class="stepnum">4</div>
+      <div class="steptext"><h4>Monitor the Risk</h4><p>Continuously review risk that's been reduced — you can't eliminate all risk, so ongoing monitoring is essential.</p></div>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="topic-divider reveal" id="t4-3">
+  <div class="wrap">
+    <span class="num">4.3</span>
+    <h2>Cisco's Approach to Cybersecurity</h2>
+    <p class="sub">A real-world model for incident response, playbooks, and access control at scale.</p>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-3-0">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.3.1</div>
+      <h3>Cisco's CSIRT</h3>
+      <p>Many large organizations maintain a <b>Computer Security Incident Response Team (CSIRT)</b> to receive, review, and respond to security incident reports. Cisco's CSIRT goes further, offering proactive threat assessment, mitigation planning, incident trend analysis, and security architecture review to prevent incidents before they happen.</p>
+<p>Cisco's CSIRT collaborates with the Forum of Incident Response and Security Teams (FIRST), the National Safety Information Exchange (NSIE), the Defense Security Information Exchange (DSIE), and the DNS Operations Analysis and Research Center (DNS-OARC) to stay current with new developments. National and public CSIRT organizations — like the CERT Division at Carnegie Mellon University — help other organizations build and improve their own incident management capabilities.</p>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-3-1">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.3.2</div>
+      <h3>The Security Playbook</h3>
+      <p>One of the best ways to prepare for a security breach is to prevent it. A <b>security playbook</b> is a collection of repeatable queries and reports outlining a standardized incident detection and response process, and it should be built around this guidance:</p>
+<ul class="check-list">
+<li>How to identify cybersecurity risk to systems, assets, data, and capabilities</li>
+<li>Implementation of safeguards and personnel training</li>
+<li>A flexible response plan that minimizes impact and damage during a breach</li>
+<li>Security measures and processes to apply in the aftermath of a breach</li>
+</ul>
+<p>An effective playbook should also:</p>
+<ul class="check-list">
+<li>Highlight how to identify and automate responses to common threats — malware-infected machines, suspicious activity, or irregular authentication attempts</li>
+<li>Describe and clearly define inbound and outbound traffic</li>
+<li>Provide summary information, including trends, statistics, and counts</li>
+<li>Provide fast access to key statistics and metrics</li>
+<li>Correlate events across all relevant data sources</li>
+</ul>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-3-2">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.3.3</div>
+      <h3>Tools for Incident Detection and Prevention</h3>
+      <div class="card-grid ">
+<div class="concept-card">
+      <div class="icon">SIEM</div>
+      <h4>Security Information & Event Management</h4>
+      <p>Collects and analyzes security alerts, logs, and other real-time and historical data from network security devices to enable early attack detection.</p>
+    </div>
+<div class="concept-card">
+      <div class="icon">DLP</div>
+      <h4>Data Loss Prevention</h4>
+      <p>Stops sensitive data from being stolen or escaping the network, monitoring data in use, in motion, and at rest.</p>
+    </div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="content-block reveal" id="t4-3-3">
+  <div class="wrap">
+    <div class="body-col">
+      <div class="tiny-label">4.3.4</div>
+      <h3>Cisco's ISE and TrustSec</h3>
+      <p>Cisco Identity Services Engine (ISE) and TrustSec enforce user access to network resources by creating role-based access control policies — ensuring the right people and devices get exactly the access they need, and nothing more.</p>
+    </div>
+  </div>
+</div>
+
+<section id="summary">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="eyebrow">Module Recap</div>
+      <h2>What You Learned</h2>
+    </div>
+    <div class="reveal"><div class="summary-grid">
+<div class="summary-item"><div class="chk">&#10003;</div><p>Security appliances — routers, firewalls, IPS, VPNs, antimalware, and more — form the layered defenses of an organization's network.</p></div>
+<div class="summary-item"><div class="chk">&#10003;</div><p>Firewalls range from simple network-layer filters to context-aware and reverse-proxy systems that filter by user, application, or role.</p></div>
+<div class="summary-item"><div class="chk">&#10003;</div><p>Port scanning identifies open, closed, or filtered ports — useful for both attackers and administrators verifying security policy.</p></div>
+<div class="summary-item"><div class="chk">&#10003;</div><p>IDS systems detect and alert; IPS systems detect and actively block malicious traffic.</p></div>
+<div class="summary-item"><div class="chk">&#10003;</div><p>Behavior-based security, honeypots, and NetFlow analysis catch anomalies that signature-based tools alone would miss.</p></div>
+<div class="summary-item"><div class="chk">&#10003;</div><p>Penetration testing runs through five phases — planning, scanning, gaining access, maintaining access, and reporting — to uncover exploitable weaknesses.</p></div>
+<div class="summary-item"><div class="chk">&#10003;</div><p>Risk management is the continuous process of framing, assessing, responding to, and monitoring risk — since it can be reduced but never eliminated.</p></div>
+<div class="summary-item"><div class="chk">&#10003;</div><p>Cisco's CSIRT models a proactive incident response team, and a security playbook standardizes how an organization detects and responds to threats.</p></div>
+<div class="summary-item"><div class="chk">&#10003;</div><p>SIEM and DLP tools help organizations detect incidents early and stop sensitive data from leaving the network.</p></div>
+</div></div>
+  </div>
+</section>
+
+<section id="terms" class="tight">
+  <div class="wrap">
+    <div class="shead reveal">
+      <div class="eyebrow">Vocabulary</div>
+      <h2>Key Terms &amp; Commands</h2>
+      <p class="lede">Make sure each of these terms rings a bell before you move on. Hover to review, or search the term online for a deeper dive.</p>
+    </div>
+    <div class="reveal"><div class="terms-grid">
+<span>Security Appliance</span>
+<span>Router</span>
+<span>Firewall</span>
+<span>Intrusion Prevention System (IPS)</span>
+<span>Virtual Private Network (VPN)</span>
+<span>Antimalware</span>
+<span>Antivirus</span>
+<span>Network Layer Firewall</span>
+<span>Transport Layer Firewall</span>
+<span>Application Layer Firewall</span>
+<span>Context-Aware Firewall</span>
+<span>Proxy Server</span>
+<span>Reverse Proxy Server</span>
+<span>NAT Firewall</span>
+<span>Host-Based Firewall</span>
+<span>Port Scanning</span>
+<span>Intrusion Detection System (IDS)</span>
+<span>Advanced Malware Protection (AMP)</span>
+<span>Honeypot</span>
+<span>NetFlow</span>
+<span>Penetration Testing</span>
+<span>Impact Reduction</span>
+<span>Risk Management</span>
+<span>Computer Security Incident Response Team (CSIRT)</span>
+<span>Security Information and Event Management (SIEM)</span>
+<span>Data Loss Prevention (DLP)</span>
+</div></div>
+  </div>
+</section>
+
+<section class="tight" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="modnav">
+      <a href="module3.html" class="modnav prev">
+        <div class="direction">← Previous Module</div>
+        <div class="mtitle">Module 3: Protecting Your Data and Privacy</div>
+      </a>
+      <a href="module5.html" class="modnav next">
+        <div class="direction">Next Module →</div>
+        <div class="mtitle">Module 5: Will Your Future Be in Cybersecurity?</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-cta">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center;">Keep going</div>
+      <h2>Five modules. One safer you.</h2>
+      <p>Work through each module in order, try the quick-check questions, and revisit the glossary whenever a term feels unfamiliar.</p>
+      <div class="hero-ctas">
+        <a href="index.html" class="btn btn-primary">← Back to Course Home</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot-cols">
+    <div>
+      <h4>Introduction to Cybersecurity</h4>
+      <p style="max-width:360px;">A five-module foundations course covering personal data, common attacks, privacy defenses, organizational security, and career pathways in cybersecurity.</p>
+    </div>
+    <div>
+      <h4>Modules</h4>
+      <a href="module1.html">1. The World of Cybersecurity</a>
+      <a href="module2.html">2. Attacks, Concepts & Techniques</a>
+      <a href="module3.html">3. Protecting Data & Privacy</a>
+      <a href="module4.html">4. Protecting the Organization</a>
+      <a href="module5.html">5. Your Future in Cybersecurity</a>
+    </div>
+    <div>
+      <h4>Study Tools</h4>
+      <a href="index.html#about">About this course</a>
+      <a href="module1.html#terms">Key terms glossary</a>
+      <a href="module1.html#summary">Module summaries</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>Training material adapted for classroom &amp; self-study use.</span>
+    <span>Introduction to Cybersecurity — Student Edition</span>
+  </div>
+</footer>
+
+<script>
+// Top progress bar
+const topbar = document.getElementById('topbar');
+function updateBar(){
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  if(topbar) topbar.style.width = (isFinite(scrolled)?scrolled:0) + '%';
+}
+document.addEventListener('scroll', updateBar);
+updateBar();
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Scroll-spy for TOC
+const tocLinks = document.querySelectorAll('.toc-list a[data-spy]');
+if(tocLinks.length){
+  const targets = Array.from(tocLinks).map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const spy = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      const id = '#'+entry.target.id;
+      const link = document.querySelector('.toc-list a[href="'+id+'"]');
+      if(!link) return;
+      if(entry.isIntersecting){
+        tocLinks.forEach(l=>l.style.background='');
+        link.style.background='rgba(255,255,255,.09)';
+        link.style.color = '#fff';
+      }
+    });
+  },{rootMargin:'-20% 0px -70% 0px'});
+  targets.forEach(t=>spy.observe(t));
+}
+
+// Quick-check quiz interaction
+function qcheck(btn, correct){
+  const group = btn.closest('.quickcheck');
+  const options = group.querySelectorAll('.qoption');
+  options.forEach(o=>{ o.classList.remove('correct','incorrect'); o.disabled = true; });
+  if(correct){ btn.classList.add('correct'); }
+  else { btn.classList.add('incorrect');
+    options.forEach(o=>{ if(o.dataset.correct==='true') o.classList.add('correct'); });
+  }
+  const explain = group.querySelector('.qexplain');
+  if(explain) explain.classList.add('show');
+}
+</script>
+</body>
+</html>
