@@ -28,25 +28,25 @@ html{scroll-behavior:smooth;}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;}
 ::selection{background:var(--violet);color:#fff;}
 a{color:inherit;text-decoration:none;}
-p{color:var(--body);line-height:1.75;margin:0 0 14px 0;font-size:15.5px;}
+p{color:var(--body);line-height:1.75;margin:0 0 14px 0;font-size:17.5px;}
 p:last-child{margin-bottom:0;}
 ul,ol{margin:0;padding:0;color:var(--body);}
 img{max-width:100%;}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,48px);}
-.eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.eyebrow{font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
 h1,h2,h3,h4{font-family:var(--sans);font-weight:800;margin:0;letter-spacing:-.02em;color:var(--text);}
-h2{font-size:clamp(26px,3.2vw,38px);line-height:1.15;}
-h3{font-size:20px;line-height:1.3;}
-.lede{font-size:16.5px;color:var(--body);max-width:620px;margin-top:14px;line-height:1.7;}
+h2{font-size:clamp(28px,3.2vw,40px);line-height:1.15;}
+h3{font-size:22px;line-height:1.3;}
+.lede{font-size:18.5px;color:var(--body);max-width:620px;margin-top:14px;line-height:1.7;}
 
-.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:12px 22px;border-radius:8px;transition:all .2s ease;cursor:pointer;border:1px solid transparent;}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:16px;padding:12px 22px;border-radius:8px;transition:all .2s ease;cursor:pointer;border:1px solid transparent;}
 .btn-primary{background:var(--violet);color:#fff;box-shadow:0 1px 2px rgba(20,20,30,.06);}
 .btn-primary:hover{background:var(--violet-hover);transform:translateY(-1px);box-shadow:0 8px 20px -6px rgba(91,79,233,.45);}
 .btn-ghost{background:transparent;color:var(--text);border-color:var(--border);}
 .btn-ghost:hover{border-color:var(--violet);color:var(--violet);background:var(--violet-soft);}
-.btn-sm{padding:8px 16px;font-size:13px;}
+.btn-sm{padding:8px 16px;font-size:15px;}
 
-.tag{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);background:var(--bg-elev2);border:1px solid var(--border);padding:5px 11px;border-radius:6px;}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);background:var(--bg-elev2);border:1px solid var(--border);padding:5px 11px;border-radius:6px;}
 .tag.violet{color:var(--violet);border-color:var(--violet-line);background:var(--violet-soft);}
 .tag.red{color:var(--red);border-color:var(--red-line);background:var(--red-soft);}
 .tag.green{color:var(--green);border-color:var(--green-line);background:var(--green-soft);}
@@ -55,17 +55,17 @@ h3{font-size:20px;line-height:1.3;}
 /* ---------------- NAV ---------------- */
 #topbar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--violet),#9F86FF);width:0%;z-index:300;transition:width .1s ease;}
 header{position:fixed;top:0;left:0;right:0;z-index:250;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
-.nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px;}
-.wordmark{font-weight:800;font-size:15.5px;letter-spacing:-.01em;color:var(--text);display:flex;align-items:center;gap:9px;}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:11px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.wordmark{font-weight:800;font-size:17.5px;letter-spacing:-.01em;color:var(--text);display:flex;align-items:center;gap:9px;}
 .wordmark .mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(145deg,var(--violet),#8B7BFF);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
 .wordmark .mark svg{width:15px;height:15px;}
 .wordmark span{color:var(--violet);}
 nav.mainnav{display:flex;align-items:center;gap:4px;}
-nav.mainnav > a{font-size:13.5px;font-weight:500;color:var(--muted);transition:all .2s ease;padding:8px 12px;border-radius:7px;}
+nav.mainnav > a{font-size:15.5px;font-weight:500;color:var(--muted);transition:all .2s ease;padding:8px 12px;border-radius:7px;}
 nav.mainnav > a:hover{color:var(--text);background:var(--bg-elev);}
 nav.mainnav > a.active{color:var(--violet);background:var(--violet-soft);}
 .navcta{display:flex;align-items:center;gap:12px;}
-.navcta .btn{padding:9px 18px;font-size:13px;}
+.navcta .btn{padding:9px 18px;font-size:15px;}
 @media (max-width:900px){nav.mainnav{display:none;}}
 
 main{padding-top:64px;}
@@ -78,13 +78,13 @@ section.tight{padding:56px 0;}
 #hero{padding-top:150px;padding-bottom:80px;border-bottom:1px solid var(--border);
   background:radial-gradient(1000px 500px at 85% 0%,rgba(91,79,233,.08),transparent 60%),
              radial-gradient(700px 400px at 0% 100%,rgba(194,46,58,.05),transparent 60%);}
-.hero-title{font-size:clamp(34px,4.6vw,54px);line-height:1.08;margin-bottom:18px;}
+.hero-title{font-size:clamp(36px,4.6vw,56px);line-height:1.08;margin-bottom:18px;}
 .hero-title .hl{color:var(--violet);}
-.hero-sub{font-size:17px;color:var(--body);max-width:640px;margin-bottom:30px;line-height:1.7;}
+.hero-sub{font-size:19px;color:var(--body);max-width:640px;margin-bottom:30px;line-height:1.7;}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
 .hero-stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:44px;padding-top:36px;border-top:1px solid var(--border);}
-.hero-stats .stat .v{font-family:var(--mono);font-weight:700;font-size:26px;color:var(--text);}
-.hero-stats .stat .k{font-size:12.5px;color:var(--muted);margin-top:4px;}
+.hero-stats .stat .v{font-family:var(--mono);font-weight:700;font-size:28px;color:var(--text);}
+.hero-stats .stat .k{font-size:14.5px;color:var(--muted);margin-top:4px;}
 
 /* ---------------- MODULE HERO (module pages) ---------------- */
 #modhero{padding-top:148px;padding-bottom:56px;border-bottom:1px solid var(--border);
@@ -93,61 +93,63 @@ section.tight{padding:56px 0;}
 @media (max-width:940px){.modhero-grid{grid-template-columns:1fr;}}
 .modhero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
 .objective-box{background:var(--bg-elev);border:1px solid var(--border);border-left:3px solid var(--violet);border-radius:10px;padding:20px 22px;margin-top:26px;}
-.objective-box .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--violet);font-weight:700;margin-bottom:8px;}
-.objective-box p{font-size:14.5px;color:var(--text);}
+.objective-box .k{font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--violet);font-weight:700;margin-bottom:8px;}
+.objective-box p{font-size:16.5px;color:var(--text);}
 .toc-card{background:var(--navy);border-radius:14px;padding:22px;color:#fff;}
-.toc-card .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#8E8EFF;margin-bottom:14px;font-weight:700;}
+.toc-card .k{font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:#8E8EFF;margin-bottom:14px;font-weight:700;}
 .toc-list{display:flex;flex-direction:column;gap:2px;}
-.toc-list a{display:flex;align-items:baseline;gap:10px;padding:9px 10px;border-radius:8px;font-size:13.5px;color:#C7C7DA;transition:all .15s ease;}
+.toc-list a{display:flex;align-items:baseline;gap:10px;padding:9px 10px;border-radius:8px;font-size:15.5px;color:#C7C7DA;transition:all .15s ease;}
 .toc-list a:hover{background:rgba(255,255,255,.06);color:#fff;}
-.toc-list a .num{font-family:var(--mono);font-size:11.5px;color:#8E8EFF;flex:0 0 auto;}
+.toc-list a .num{font-family:var(--mono);font-size:13.5px;color:#8E8EFF;flex:0 0 auto;}
 .toc-list a.summary-link{border-top:1px solid rgba(255,255,255,.1);margin-top:8px;padding-top:12px;color:#9F9FE8;}
 
 /* ---------------- TOPIC DIVIDER ---------------- */
 .topic-divider{scroll-margin-top:78px;padding:46px 0 30px 0;}
-.topic-divider .num{font-family:var(--mono);font-size:13px;color:var(--violet);font-weight:700;background:var(--violet-soft);border:1px solid var(--violet-line);padding:6px 14px;border-radius:100px;display:inline-block;margin-bottom:16px;}
-.topic-divider h2{font-size:clamp(24px,3vw,32px);}
-.topic-divider .sub{color:var(--muted);font-size:14.5px;margin-top:8px;max-width:640px;}
+.topic-divider .num{font-family:var(--mono);font-size:15px;color:var(--violet);font-weight:700;background:var(--violet-soft);border:1px solid var(--violet-line);padding:6px 14px;border-radius:100px;display:inline-block;margin-bottom:16px;}
+.topic-divider h2{font-size:clamp(26px,3vw,34px);}
+.topic-divider .sub{color:var(--muted);font-size:16.5px;margin-top:8px;max-width:640px;}
 
 /* ---------------- CONTENT CARD ---------------- */
 .content-block{scroll-margin-top:78px;padding:34px 0;border-top:1px solid var(--border);}
 .content-block:first-of-type{border-top:none;}
 .content-block h3{margin-bottom:14px;}
-.content-block .tiny-label{font-family:var(--mono);font-size:11px;color:var(--muted-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.content-block .tiny-label{font-family:var(--mono);font-size:13px;color:var(--muted-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
 .content-block .body-col{max-width:760px;}
 
-.sub-heading{font-weight:700;font-size:14.5px;color:var(--text);margin:18px 0 8px 0;}
+.sub-heading{font-weight:700;font-size:16.5px;color:var(--text);margin:18px 0 8px 0;}
 .sub-heading:first-child{margin-top:0;}
 
 ul.plain-list{display:flex;flex-direction:column;gap:9px;margin:12px 0;}
-ul.plain-list li{list-style:none;color:var(--body);font-size:15px;line-height:1.65;display:flex;gap:10px;}
+ul.plain-list li{list-style:none;color:var(--body);font-size:17px;line-height:1.65;display:flex;gap:10px;}
 ul.plain-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--violet);flex:0 0 auto;margin-top:9px;}
-ul.plain-list li.nested{padding-left:22px;font-size:14px;}
+ul.plain-list li.nested{padding-left:22px;font-size:16px;}
 ul.plain-list li.nested::before{background:var(--muted-dim);width:4px;height:4px;}
 
 ul.check-list{display:flex;flex-direction:column;gap:9px;margin:12px 0;}
-ul.check-list li{list-style:none;color:var(--body);font-size:14.5px;display:flex;gap:10px;font-family:var(--mono);line-height:1.5;}
+ul.check-list li{list-style:none;color:var(--body);font-size:16.5px;display:flex;gap:10px;font-family:var(--mono);line-height:1.5;}
 ul.check-list li::before{content:'✓';color:var(--green);font-weight:700;flex:0 0 auto;}
 
 /* ---------------- CARD GRIDS (enumerable concepts) ---------------- */
 .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px;}
 .card-grid.cols-3{grid-template-columns:repeat(3,1fr);}
-@media (max-width:820px){.card-grid,.card-grid.cols-3{grid-template-columns:1fr;}}
+.card-grid.cols-4{grid-template-columns:repeat(4,1fr);}
+@media (max-width:1000px){.card-grid.cols-4{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:820px){.card-grid,.card-grid.cols-3,.card-grid.cols-4{grid-template-columns:1fr;}}
 .concept-card{background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;padding:22px;transition:border-color .2s ease,transform .2s ease;}
 .concept-card:hover{border-color:var(--violet-line);transform:translateY(-2px);}
-.concept-card .icon{width:38px;height:38px;border-radius:9px;background:var(--violet-soft);color:var(--violet);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-bottom:14px;font-family:var(--mono);}
+.concept-card .icon{width:38px;height:38px;border-radius:9px;background:var(--violet-soft);color:var(--violet);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;margin-bottom:14px;font-family:var(--mono);}
 .concept-card.red .icon{background:var(--red-soft);color:var(--red);}
 .concept-card.orange .icon{background:var(--orange-soft);color:var(--orange);}
 .concept-card.green .icon{background:var(--green-soft);color:var(--green);}
-.concept-card h4{font-size:15px;margin-bottom:8px;}
-.concept-card p{font-size:13.5px;margin-bottom:0;}
+.concept-card h4{font-size:17px;margin-bottom:8px;}
+.concept-card p{font-size:15.5px;margin-bottom:0;}
 
 /* ---------------- CALLOUTS ---------------- */
 .callout{border-radius:12px;padding:20px 22px;margin:20px 0;border:1px solid var(--border);background:var(--bg-elev);display:flex;gap:14px;}
-.callout .glyph{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;font-family:var(--mono);}
+.callout .glyph{flex:0 0 auto;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;font-family:var(--mono);}
 .callout .ctext{flex:1;}
-.callout .clabel{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:700;margin-bottom:6px;}
-.callout p{font-size:14.5px;margin-bottom:0;}
+.callout .clabel{font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.07em;font-weight:700;margin-bottom:6px;}
+.callout p{font-size:16.5px;margin-bottom:0;}
 .callout.example{background:var(--orange-soft);border-color:var(--orange-line);}
 .callout.example .glyph{background:var(--orange);color:#fff;}
 .callout.example .clabel{color:var(--orange);}
@@ -163,22 +165,22 @@ ul.check-list li::before{content:'✓';color:var(--green);font-weight:700;flex:0
 
 /* ---------------- SCENARIO ---------------- */
 .scenario{background:var(--navy);color:#fff;border-radius:14px;padding:26px 28px;margin:18px 0;}
-.scenario .stag{font-family:var(--mono);font-size:11px;color:#8E8EFF;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:10px;}
-.scenario p{color:#D3D3E4;font-size:14.5px;margin-bottom:10px;}
+.scenario .stag{font-family:var(--mono);font-size:13px;color:#8E8EFF;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:10px;}
+.scenario p{color:#D3D3E4;font-size:16.5px;margin-bottom:10px;}
 .scenario p:last-child{margin-bottom:0;}
 
 /* ---------------- STEPS ---------------- */
 .steps{display:flex;flex-direction:column;gap:0;margin-top:16px;}
 .step{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--border);}
 .step:first-child{border-top:none;padding-top:0;}
-.step .stepnum{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--violet);color:#fff;font-family:var(--mono);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;}
-.step .steptext h4{font-size:14.5px;margin-bottom:5px;}
-.step .steptext p{font-size:14px;}
+.step .stepnum{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--violet);color:#fff;font-family:var(--mono);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;}
+.step .steptext h4{font-size:16.5px;margin-bottom:5px;}
+.step .steptext p{font-size:16px;}
 
 /* ---------------- TABLE ---------------- */
 .table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;margin:18px 0;}
-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:520px;background:#fff;}
-thead th{text-align:left;padding:14px 18px;background:var(--bg-elev);color:var(--muted);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:15.5px;min-width:520px;background:#fff;}
+thead th{text-align:left;padding:14px 18px;background:var(--bg-elev);color:var(--muted);font-weight:600;font-size:13.5px;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--border);}
 tbody td{padding:14px 18px;border-bottom:1px solid var(--border);color:var(--body);vertical-align:top;line-height:1.6;}
 tbody td:first-child{color:var(--text);font-weight:600;white-space:nowrap;}
 tbody tr:last-child td{border-bottom:none;}
@@ -186,14 +188,14 @@ tbody tr:hover{background:var(--violet-soft);}
 
 /* ---------------- QUICK CHECK QUIZ ---------------- */
 .quickcheck{background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;padding:24px 26px;margin:22px 0;}
-.quickcheck .qtag{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--violet);font-weight:700;margin-bottom:12px;}
-.quickcheck .qtext{font-weight:700;font-size:15px;margin-bottom:14px;color:var(--text);}
+.quickcheck .qtag{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--violet);font-weight:700;margin-bottom:12px;}
+.quickcheck .qtext{font-weight:700;font-size:17px;margin-bottom:14px;color:var(--text);}
 .qoptions{display:flex;flex-direction:column;gap:8px;}
-.qoption{all:unset;cursor:pointer;display:block;padding:12px 16px;border-radius:9px;border:1px solid var(--border);background:#fff;font-size:14px;color:var(--body);transition:all .15s ease;}
+.qoption{all:unset;cursor:pointer;display:block;padding:12px 16px;border-radius:9px;border:1px solid var(--border);background:#fff;font-size:16px;color:var(--body);transition:all .15s ease;}
 .qoption:hover{border-color:var(--violet-line);background:var(--violet-soft);}
 .qoption.correct{border-color:var(--green);background:var(--green-soft);color:var(--text);font-weight:600;}
 .qoption.incorrect{border-color:var(--red);background:var(--red-soft);color:var(--text);}
-.qexplain{display:none;margin-top:12px;padding:12px 14px;border-radius:9px;background:#fff;border:1px solid var(--border);font-size:13.5px;color:var(--body);}
+.qexplain{display:none;margin-top:12px;padding:12px 14px;border-radius:9px;background:#fff;border:1px solid var(--border);font-size:15.5px;color:var(--body);}
 .qexplain.show{display:block;}
 .qexplain b{color:var(--text);}
 
@@ -201,58 +203,220 @@ tbody tr:hover{background:var(--violet-soft);}
 .module-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:8px;}
 .module-card{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:var(--bg-elev);border:1px solid var(--border);border-radius:14px;padding:26px 28px;transition:all .2s ease;}
 .module-card:hover{border-color:var(--violet-line);transform:translateY(-2px);box-shadow:0 16px 32px -18px rgba(91,79,233,.3);}
-.module-card .modnum{font-family:var(--mono);font-weight:800;font-size:26px;color:var(--violet);background:var(--violet-soft);border:1px solid var(--violet-line);border-radius:12px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
-.module-card h3{font-size:18px;margin-bottom:6px;}
-.module-card p{font-size:13.5px;margin-bottom:10px;max-width:600px;}
+.module-card .modnum{font-family:var(--mono);font-weight:800;font-size:28px;color:var(--violet);background:var(--violet-soft);border:1px solid var(--violet-line);border-radius:12px;width:60px;height:60px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.module-card h3{font-size:20px;margin-bottom:6px;}
+.module-card p{font-size:15.5px;margin-bottom:10px;max-width:600px;}
 .module-card .mtopics{display:flex;gap:8px;flex-wrap:wrap;}
-.module-card .mtopics span{font-family:var(--mono);font-size:11px;color:var(--muted-dim);background:var(--bg-elev2);padding:4px 9px;border-radius:6px;}
-.module-card .go{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--violet);white-space:nowrap;}
+.module-card .mtopics span{font-family:var(--mono);font-size:13px;color:var(--muted-dim);background:var(--bg-elev2);padding:4px 9px;border-radius:6px;}
+.module-card .go{display:flex;align-items:center;gap:8px;font-size:15.5px;font-weight:600;color:var(--violet);white-space:nowrap;}
 @media (max-width:700px){.module-card{grid-template-columns:auto 1fr;}.module-card .go{grid-column:1 / -1;justify-content:flex-start;padding-top:6px;border-top:1px solid var(--border);margin-top:4px;}}
 
 /* ---------------- TRUST / FEATURE GRID (home) ---------------- */
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .trust-item{background:#fff;padding:28px 24px;}
 .trust-item .icon{width:34px;height:34px;border-radius:8px;background:var(--violet-soft);color:var(--violet);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
-.trust-item h3{font-size:14.5px;margin-bottom:8px;}
-.trust-item p{font-size:13px;}
+.trust-item h3{font-size:16.5px;margin-bottom:8px;}
+.trust-item p{font-size:15px;}
 @media (max-width:860px){.trust-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.trust-grid{grid-template-columns:1fr;}}
 
 /* ---------------- TERMS GLOSSARY ---------------- */
 .terms-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;}
-.terms-grid span{font-size:13px;font-weight:500;color:var(--muted);background:var(--bg-elev);border:1px solid var(--border);padding:9px 16px;border-radius:100px;transition:all .2s ease;}
+.terms-grid span{font-size:15px;font-weight:500;color:var(--muted);background:var(--bg-elev);border:1px solid var(--border);padding:9px 16px;border-radius:100px;transition:all .2s ease;}
 .terms-grid span:hover{color:var(--violet);border-color:var(--violet-line);background:var(--violet-soft);}
 
 /* ---------------- SUMMARY LIST ---------------- */
-.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
-@media (max-width:760px){.summary-grid{grid-template-columns:1fr;}}
-.summary-item{display:flex;gap:12px;background:var(--bg-elev);border:1px solid var(--border);border-radius:10px;padding:16px 18px;}
-.summary-item .chk{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;margin-top:1px;}
-.summary-item p{font-size:13.5px;margin-bottom:0;color:var(--text);}
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px;}
+@media (max-width:900px){.summary-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){.summary-grid{grid-template-columns:1fr;}}
+.summary-item{display:flex;gap:9px;background:var(--bg-elev);border:1px solid var(--border);border-radius:10px;padding:12px 13px;}
+.summary-item .chk{flex:0 0 auto;width:18px;height:18px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;margin-top:1px;}
+.summary-item p{font-size:14.5px;margin-bottom:0;color:var(--text);line-height:1.5;}
+.slide .terms-grid span{padding:7px 13px;font-size:14px;}
 
 /* ---------------- MODULE NAV FOOTER ---------------- */
 .modnav{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 @media (max-width:700px){.modnav{grid-template-columns:1fr;}}
 .modnav a{background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;padding:20px 22px;transition:all .2s ease;}
 .modnav a:hover{border-color:var(--violet-line);background:var(--violet-soft);}
-.modnav .direction{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-dim);margin-bottom:6px;}
-.modnav .mtitle{font-weight:700;font-size:15px;color:var(--text);}
+.modnav .direction{font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-dim);margin-bottom:6px;}
+.modnav .mtitle{font-weight:700;font-size:17px;color:var(--text);}
 .modnav.next{text-align:right;}
 
 /* ---------------- FOOTER ---------------- */
 footer{padding-top:0;background:var(--bg-elev);}
 .foot-cta{padding:80px 0;text-align:center;border-bottom:1px solid var(--border);background:radial-gradient(800px 400px at 50% 0%,rgba(91,79,233,.08),transparent 60%);}
 .foot-cta h2{margin-bottom:16px;}
-.foot-cta p{max-width:480px;margin:0 auto 30px auto;font-size:15.5px;}
+.foot-cta p{max-width:480px;margin:0 auto 30px auto;font-size:17.5px;}
 .foot-cta .hero-ctas{justify-content:center;}
 .foot-cols{padding:56px 0 36px 0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;}
 @media (max-width:760px){.foot-cols{grid-template-columns:1fr;gap:30px;}}
-.foot-cols h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-dim);margin-bottom:16px;font-weight:700;}
-.foot-cols a{display:block;font-size:13.5px;color:var(--muted);margin-bottom:11px;transition:color .2s ease;}
+.foot-cols h4{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted-dim);margin-bottom:16px;font-weight:700;}
+.foot-cols a{display:block;font-size:15.5px;color:var(--muted);margin-bottom:11px;transition:color .2s ease;}
 .foot-cols a:hover{color:var(--violet);}
-.foot-bottom{padding:22px 0 36px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--muted-dim);}
-.back-home-inline{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--violet);margin-bottom:20px;}
+.foot-bottom{padding:22px 0 36px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14.5px;color:var(--muted-dim);}
+.back-home-inline{display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--violet);margin-bottom:20px;}
 .back-home-inline:hover{color:var(--violet-hover);}
+
+/* =================================================================
+   SLIDE DECK MODE (module pages) — one topic/concept per screen,
+   navigated with arrows, Page Up/Down, or on-screen controls.
+   ================================================================= */
+html.slidemode, html.slidemode body{height:100%;overflow:hidden;}
+.slide-deck{position:fixed;left:0;right:0;top:var(--header-h,56px);bottom:52px;overflow:hidden;background:var(--bg);}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;}
+.slide.active{display:flex;}
+.slide-scroll{flex:1;overflow-y:auto;padding:22px clamp(22px,5vw,64px) 22px;max-width:1000px;margin:0 auto;width:100%;display:flex;flex-direction:column;justify-content:flex-start;min-height:100%;}
+.slide-scroll.fits{justify-content:center;}
+.slide-scroll::-webkit-scrollbar{width:8px;}
+.slide-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:8px;}
+.slide .eyebrow{margin-bottom:8px;}
+.slide h2{font-size:clamp(23px,2.6vw,32px);margin-bottom:5px;}
+.slide h3{font-size:20px;}
+.slide p{font-size:16.5px;line-height:1.6;margin-bottom:10px;}
+.slide .card-grid{gap:9px;margin-top:10px;}
+.slide .card-grid.cols-4{grid-template-columns:repeat(4,1fr);}
+.slide .concept-card{padding:11px 13px;}
+.slide .concept-card .icon{width:30px;height:30px;font-size:14px;margin-bottom:9px;border-radius:7px;}
+.slide .concept-card h4{font-size:15.5px;margin-bottom:5px;}
+.slide .concept-card p{font-size:14.5px;margin-bottom:0;line-height:1.5;}
+.slide .content-block, .slide .topic-divider{padding:0;border:none;}
+.slide .sub-heading{margin:12px 0 6px 0;font-size:15.5px;}
+.slide .tiny-label{margin-bottom:5px;}
+.slide .callout{padding:13px 16px;margin:12px 0;gap:11px;}
+.slide .callout p{font-size:15.5px;}
+.slide .callout .glyph{width:24px;height:24px;font-size:14px;}
+.slide .scenario{padding:16px 18px;margin:12px 0;}
+.slide .scenario p{font-size:15.5px;margin-bottom:7px;}
+.slide .steps{margin-top:10px;}
+.slide .step{padding:10px 0;gap:12px;}
+.slide .step .stepnum{width:24px;height:24px;font-size:13.5px;}
+.slide .step .steptext h4{font-size:15.5px;margin-bottom:3px;}
+.slide .step .steptext p{font-size:14.5px;}
+.slide .table-wrap{margin:12px 0;}
+.slide thead th{padding:9px 14px;font-size:13px;}
+.slide tbody td{padding:9px 14px;font-size:14.5px;}
+.slide .quickcheck{padding:15px 17px;margin:12px 0;}
+.slide .qtext{font-size:15.5px;margin-bottom:10px;}
+.slide .qoption{padding:9px 13px;font-size:15px;}
+.slide .qoptions{gap:6px;}
+.slide-num-badge{font-family:var(--mono);font-size:14px;color:var(--violet);font-weight:700;background:var(--violet-soft);border:1px solid var(--violet-line);padding:5px 13px;border-radius:100px;display:inline-block;margin-bottom:12px;}
+.slide .hero-title{font-size:clamp(25px,3.2vw,36px);margin-bottom:8px;line-height:1.12;}
+.slide .hero-sub{font-size:15.5px;line-height:1.55;margin-bottom:14px;max-width:640px;}
+.slide .modhero-meta{margin-bottom:10px;}
+.slide .objective-box{padding:12px 15px;margin-top:14px;}
+.slide .objective-box .k{margin-bottom:4px;}
+.slide .objective-box p{font-size:14.5px;}
+.slide .hero-ctas{margin-top:16px !important;}
+.slide .summary-grid{gap:8px;margin-top:6px;}
+.slide .summary-item{padding:10px 11px;gap:7px;}
+.slide .summary-item p{font-size:14px;line-height:1.45;}
+.slide .terms-grid{gap:7px;margin-top:10px;}
+
+/* Tile grid — replaces long vertical checklists so items sit side-by-side instead of stacking tall */
+.tile-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0;}
+.tile-list.cols-3{grid-template-columns:repeat(3,1fr);}
+.tile-item{list-style:none;display:flex;align-items:flex-start;gap:8px;background:var(--bg-elev);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:14.5px;line-height:1.5;color:var(--body);}
+.tile-item .tick{flex:0 0 auto;width:16px;height:16px;border-radius:50%;background:var(--green);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+@media (max-width:820px){.tile-list, .tile-list.cols-3{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.tile-list, .tile-list.cols-3{grid-template-columns:1fr;}}
+
+/* Centered "title card" style slides: hero, agenda, topic dividers, finish */
+.slide.center-slide .slide-scroll{justify-content:center;max-width:820px;}
+.slide.topic-slide h2{font-size:clamp(28px,3.6vw,42px);}
+.slide.topic-slide .sub{color:var(--muted);font-size:17px;margin-top:8px;max-width:600px;}
+.slide.slide-title h1{margin-bottom:6px;}
+
+/* Agenda slide */
+.agenda-list{display:flex;flex-direction:column;gap:2px;margin-top:18px;}
+.agenda-row{all:unset;cursor:pointer;display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:baseline;padding:13px 14px;border-radius:10px;transition:background .15s ease;}
+.agenda-row:hover{background:var(--violet-soft);}
+.agenda-row .num{font-family:var(--mono);color:var(--violet);font-weight:700;font-size:16px;}
+.agenda-row .atitle{font-weight:700;font-size:17px;color:var(--text);display:block;}
+.agenda-row .asub{grid-column:2;font-size:14.5px;color:var(--muted);margin-top:2px;}
+
+/* Bottom control bar */
+.slide-controls{position:fixed;left:0;right:0;bottom:0;height:52px;z-index:260;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;gap:16px;}
+.sc-group{display:flex;align-items:center;gap:10px;}
+.sc-btn{all:unset;cursor:pointer;display:flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--text);background:var(--bg-elev);border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .15s ease;}
+.sc-btn:hover{border-color:var(--violet-line);color:var(--violet);background:var(--violet-soft);}
+.sc-btn:disabled{opacity:.35;cursor:default;pointer-events:none;}
+.sc-btn.primary{background:var(--violet);border-color:var(--violet);color:#fff;}
+.sc-btn.primary:hover{background:var(--violet-hover);color:#fff;}
+.sc-count{font-family:var(--mono);font-size:14.5px;color:var(--muted);white-space:nowrap;}
+.sc-progress{position:absolute;top:0;left:0;height:2px;background:var(--violet-line);width:100%;}
+.sc-progress-fill{height:100%;background:var(--violet);transition:width .2s ease;}
+
+/* Slide jump menu (off-canvas) */
+.slidemenu-panel{position:fixed;top:0;right:-340px;width:320px;height:100%;background:var(--navy);z-index:400;transition:right .25s ease;padding:24px 18px;overflow-y:auto;box-shadow:-20px 0 60px -20px rgba(0,0,0,.4);}
+.slidemenu-panel.open{right:0;}
+.slidemenu-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding:0 6px;}
+.slidemenu-head h4{color:#fff;font-size:15px;text-transform:uppercase;letter-spacing:.07em;font-family:var(--mono);}
+.slidemenu-close{all:unset;cursor:pointer;color:#8E8EFF;font-size:22px;line-height:1;padding:4px 8px;}
+.slidemenu a{display:block;padding:9px 12px;border-radius:8px;font-size:15.5px;color:#C7C7DA;margin-bottom:1px;transition:all .15s ease;}
+.slidemenu a:hover{background:rgba(255,255,255,.06);color:#fff;}
+.slidemenu a.indent{padding-left:26px;font-size:14.5px;color:#A3A3BF;}
+.slidemenu a.current{background:var(--violet);color:#fff;font-weight:600;}
+.slidemenu-overlay{position:fixed;inset:0;background:rgba(10,10,20,.4);z-index:390;opacity:0;pointer-events:none;transition:opacity .2s ease;}
+.slidemenu-overlay.open{opacity:1;pointer-events:auto;}
+
+@media (max-width:700px){
+  .slide-scroll{padding:28px 18px 40px;}
+  .slide-controls{padding:0 12px;}
+  .sc-btn span.label{display:none;}
+}
+
+/* Short-viewport laptops (1366x768, 1280x720, etc.) — squeeze chrome further so
+   content-heavy slides still fit without scrolling. */
+@media (max-height:820px){
+  :root{--header-h:52px;}
+  .slide-deck{bottom:48px;}
+  .slide-controls{height:48px;}
+  .slide-scroll{padding:16px clamp(20px,5vw,64px) 16px;}
+  .slide h2{font-size:clamp(19px,2.3vw,26px);margin-bottom:4px;}
+  .slide h3{font-size:16.5px;}
+  .slide p{font-size:13.5px;line-height:1.52;margin-bottom:8px;}
+  .slide .card-grid{gap:8px;margin-top:9px;}
+  .slide .concept-card{padding:10px 12px;}
+  .slide .concept-card .icon{width:26px;height:26px;font-size:11px;margin-bottom:6px;}
+  .slide .concept-card h4{font-size:13px;margin-bottom:4px;}
+  .slide .concept-card p{font-size:12px;}
+  .slide .callout{padding:10px 13px;margin:9px 0;}
+  .slide .scenario{padding:12px 14px;margin:9px 0;}
+  .slide .scenario p{font-size:12.5px;margin-bottom:5px;}
+  .slide .steps{margin-top:7px;}
+  .slide .step{padding:7px 0;gap:10px;}
+  .slide .quickcheck{padding:11px 14px;margin:9px 0;}
+  .slide .qoption{padding:7px 11px;font-size:12.5px;}
+  .tile-list{gap:6px;margin:9px 0;}
+  .tile-item{padding:8px 10px;font-size:12px;}
+  .slide .hero-title{font-size:clamp(20px,2.8vw,28px);}
+  .slide .hero-sub{font-size:12.5px;margin-bottom:10px;}
+  .slide .objective-box{padding:10px 13px;margin-top:10px;}
+  .slide .summary-grid{gap:6px;}
+  .slide .summary-item{padding:8px 9px;}
+  .slide .summary-item p{font-size:11.5px;}
+}
+@media (max-height:740px){
+  .slide-scroll{padding:12px clamp(18px,5vw,64px) 12px;}
+  .slide h2{font-size:clamp(17px,2.1vw,23px);}
+  .slide p{font-size:13px;margin-bottom:6px;}
+  .slide .card-grid{gap:7px;margin-top:6px;}
+  .slide .concept-card{padding:7px 9px;}
+  .slide .concept-card h4{margin-bottom:3px;}
+  .slide .concept-card p{font-size:11.5px;line-height:1.42;}
+  .slide p{margin-bottom:5px;}
+  .slide .scenario{padding:10px 12px;margin:7px 0;}
+  .slide .scenario p{font-size:12px;margin-bottom:4px;}
+  .slide .quickcheck{padding:9px 12px;margin:7px 0;}
+  .slide .qtext{font-size:12.5px;margin-bottom:7px;}
+  .slide .qoption{padding:6px 10px;font-size:12px;}
+  .slide .qoptions{gap:5px;}
+  .tiny-label{margin-bottom:3px;}
+  .agenda-list{gap:0;margin-top:10px;}
+  .agenda-row{padding:9px 12px;}
+  .agenda-row .asub{margin-top:0;}
+}
 
 </style>
 </head>
@@ -280,44 +444,13 @@ footer{padding-top:0;background:var(--bg-elev);}
 </header>
 
 <main>
-
-<section id="modhero">
-  <div class="wrap">
-    <a href="index.html" class="back-home-inline">&larr; Course Home</a>
-    <div class="modhero-grid">
-      <div>
-        <div class="eyebrow">Module 5 of 5</div>
-        <h1 class="hero-title">Will Your Future Be in Cybersecurity?</h1>
-        <div class="modhero-meta"><span class="tag violet">2 Topics</span><span class="tag violet">~25 min</span><span class="tag violet">Careers & Ethics</span></div>
-        <p class="hero-sub">You've learned to think like a defender — and, a little, like an attacker. This final module asks what that skill set is actually worth: where the legal and ethical lines sit, and which certifications and career paths turn everything you've learned into a job.</p>
-        <div class="objective-box">
-          <div class="k">Module Objective</div>
-          <p>Access a variety of information and resources to explore the different career options in cybersecurity.</p>
-        </div>
-      </div>
-      <div><div class="toc-card"><div class="k">On this page</div><div class="toc-list">
-<a href="#t5-1" data-spy><span class="num">5.1</span> Legal and Ethical Issues</a>
-<a href="#t5-2" data-spy><span class="num">5.2</span> Education and Careers</a>
-<a href="#summary" class="summary-link" data-spy>&#9673; What You Learned</a>
-<a href="#terms" class="summary-link" data-spy>&#9673; Key Terms</a>
-</div></div></div>
-    </div>
-  </div>
-</section>
-
-<div class="topic-divider reveal" id="t5-1">
-  <div class="wrap">
-    <span class="num">5.1</span>
-    <h2>Legal and Ethical Issues</h2>
-    <p class="sub">The same skills that make a good attacker make a good defender — the difference is what's legal.</p>
-  </div>
-</div>
-<div class="content-block reveal" id="t5-1-0">
-  <div class="wrap">
-    <div class="body-col">
-      <div class="tiny-label">5.1.1</div>
-      <h3>Legal Issues in Cybersecurity</h3>
-      <p>To protect against attacks, cybersecurity professionals need many of the same skills as attackers — the difference is that professionals use those skills within the bounds of the law.</p>
+<div class="slide-deck" data-next-href="index.html" data-next-label="Course Home">
+<section class="slide slide-title center-slide active" id="top" data-index="0"><div class="slide-scroll"><div class="eyebrow">Module 5 of 5</div>
+<h1 class="hero-title">Will Your Future Be in Cybersecurity?</h1>
+<div class="modhero-meta"><span class="tag violet">2 Topics</span><span class="tag violet">~25 min</span><span class="tag violet">Careers & Ethics</span></div>
+<p class="hero-sub">You've learned to think like a defender — and, a little, like an attacker. This final module asks what that skill set is actually worth: where the legal and ethical lines sit, and which certifications and career paths turn everything you've learned into a job.</p>
+<div class="objective-box"><div class="k">Module Objective</div><p>Access a variety of information and resources to explore the different career options in cybersecurity.</p></div>
+<div class="hero-ctas" style="margin-top:26px;"><a href="#" data-goto="1" class="btn btn-primary">View Agenda →</a> <a href="index.html" class="btn btn-ghost">&larr; Course Home</a></div></div></section><section class="slide center-slide" id="agenda" data-index="1"><div class="slide-scroll"><div class="eyebrow">What&rsquo;s Ahead</div><h2>Agenda</h2><div class="agenda-list"><button class="agenda-row" data-goto-topic="t5-1"><span class="num">5.1</span><span><span class="atitle">Legal and Ethical Issues</span><span class="asub">The same skills that make a good attacker make a good defender — the difference is what's legal.</span></span></button><button class="agenda-row" data-goto-topic="t5-2"><span class="num">5.2</span><span><span class="atitle">Education and Careers</span><span class="asub">Certifications worth pursuing, and where to look for your first role.</span></span></button></div></div></section><section class="slide topic-slide center-slide" id="t5-1" data-index="2"><div class="slide-scroll"><span class="slide-num-badge">5.1</span><h2>Legal and Ethical Issues</h2><p class="sub">The same skills that make a good attacker make a good defender — the difference is what's legal.</p></div></section><section class="slide" id="t5-1-0" data-index="3"><div class="slide-scroll"><div class="tiny-label">5.1.1</div><h3>Legal Issues in Cybersecurity</h3><p>To protect against attacks, cybersecurity professionals need many of the same skills as attackers — the difference is that professionals use those skills within the bounds of the law.</p>
 <div class="card-grid ">
 <div class="concept-card">
       <div class="icon">👤</div>
@@ -330,55 +463,20 @@ footer{padding-top:0;background:var(--bg-elev);}
       <p>Businesses must abide by the cybersecurity laws of the countries they operate in. Breaking those laws on the job can cost you your job, or lead to prosecution, fines, or sentencing. When in doubt, assume an action is unlawful and check with your legal or HR department first.</p>
     </div>
 </div>
-<p>International cybersecurity law is a constantly evolving field. Cyber attacks occur in cyberspace — an electronic space with no traditional geographic boundaries — which makes it far easier to mask the source of an attack than in conventional warfare. Country practice, opinio juris (a country's sense that it is legally bound), and treaties still under negotiation continue to shape how international law treats cyberspace.</p>
-    </div>
-  </div>
-</div>
-<div class="content-block reveal" id="t5-1-1">
-  <div class="wrap">
-    <div class="body-col">
-      <div class="tiny-label">5.1.2</div>
-      <h3>Ethical Issues in Cybersecurity</h3>
-      <div class="scenario">
+<p>International cybersecurity law is a constantly evolving field. Cyber attacks occur in cyberspace — an electronic space with no traditional geographic boundaries — which makes it far easier to mask the source of an attack than in conventional warfare. Country practice, opinio juris (a country's sense that it is legally bound), and treaties still under negotiation continue to shape how international law treats cyberspace.</p></div></section><section class="slide" id="t5-1-1" data-index="4"><div class="slide-scroll"><div class="tiny-label">5.1.2</div><h3>Ethical Issues in Cybersecurity</h3><div class="scenario">
   <div class="stag">Ethical Dilemma</div>
   <p>A penetration test you carried out for @Apollo revealed that a colleague who started at the same time as you was responsible for a data breach.</p>
 <p>You're thinking about leaving this out of your report so they don't get in trouble. What should you do?</p>
 </div>
 <p>Ask yourself these questions to decide on the best course of action:</p>
-<ul class="check-list">
-<li>Is it legal?</li>
-<li>Does your action comply with company policy?</li>
-<li>Will your action be favorable for the company and its stakeholders?</li>
-<li>Would it be okay if everyone in the company took this action?</li>
-<li>Would the outcome represent the company in a positive light in a news headline?</li>
-</ul>
-<p>Many professional IT organizations — such as the Information Systems Security Association (ISSA) — publish Codes of Ethics to guide employee actions and behaviors. Cisco maintains a team devoted exclusively to ethical business conduct, and a Code of Business Conduct to help employees make decisions and resolve issues they encounter.</p>
-    </div>
-  </div>
-</div>
-<div class="topic-divider reveal" id="t5-2">
-  <div class="wrap">
-    <span class="num">5.2</span>
-    <h2>Education and Careers</h2>
-    <p class="sub">Certifications worth pursuing, and where to look for your first role.</p>
-  </div>
-</div>
-<div class="content-block reveal" id="t5-2-0">
-  <div class="wrap">
-    <div class="body-col">
-      <div class="tiny-label">5.2.1</div>
-      <h3>Become a Cybersecurity Guru</h3>
-      <p>There are many cybersecurity jobs to consider beyond an entry-level Security Analyst role. Even at the start of your career, it's worth browsing job search engines — Indeed, LinkedIn, Monster, CareerBuilder — to get a sense of what's available worldwide.</p>
-    </div>
-  </div>
-</div>
-<div class="content-block reveal" id="t5-2-1">
-  <div class="wrap">
-    <div class="body-col">
-      <div class="tiny-label">5.2.2</div>
-      <h3>Professional Certifications</h3>
-      <p>Certifications are an excellent way to verify your skills and boost your career. Here are some of the most recognized, roughly in order of experience level:</p>
-<div class="card-grid ">
+<div class="tile-list">
+<div class="tile-item"><span class="tick">&#10003;</span><span>Is it legal?</span></div>
+<div class="tile-item"><span class="tick">&#10003;</span><span>Does your action comply with company policy?</span></div>
+<div class="tile-item"><span class="tick">&#10003;</span><span>Will your action be favorable for the company and its stakeholders?</span></div>
+<div class="tile-item"><span class="tick">&#10003;</span><span>Would it be okay if everyone in the company took this action?</span></div>
+<div class="tile-item"><span class="tick">&#10003;</span><span>Would the outcome represent the company in a positive light in a news headline?</span></div>
+</div></div></section><section class="slide" id="t5-1-2" data-index="5"><div class="slide-scroll"><div class="tiny-label">5.1.2</div><h3>Codes of Ethics</h3><p>Many professional IT organizations — such as the Information Systems Security Association (ISSA) — publish Codes of Ethics to guide employee actions and behaviors. Cisco maintains a team devoted exclusively to ethical business conduct, and a Code of Business Conduct to help employees make decisions and resolve issues they encounter.</p></div></section><section class="slide topic-slide center-slide" id="t5-2" data-index="6"><div class="slide-scroll"><span class="slide-num-badge">5.2</span><h2>Education and Careers</h2><p class="sub">Certifications worth pursuing, and where to look for your first role.</p></div></section><section class="slide" id="t5-2-0" data-index="7"><div class="slide-scroll"><div class="tiny-label">5.2.1</div><h3>Become a Cybersecurity Guru</h3><p>There are many cybersecurity jobs to consider beyond an entry-level Security Analyst role. Even at the start of your career, it's worth browsing job search engines — Indeed, LinkedIn, Monster, CareerBuilder — to get a sense of what's available worldwide.</p></div></section><section class="slide" id="t5-2-1" data-index="8"><div class="slide-scroll"><div class="tiny-label">5.2.2</div><h3>Professional Certifications — Getting Started</h3><p>Certifications are an excellent way to verify your skills and boost your career. Here are some of the most recognized, roughly in order of experience level — starting with entry points for newcomers:</p>
+<div class="card-grid cols-3">
 <div class="concept-card">
       <div class="icon">1</div>
       <h4>Microsoft Technology Associate (MTA) Security Fundamentals</h4>
@@ -394,6 +492,8 @@ footer{padding-top:0;background:var(--bg-elev);}
       <h4>ISACA CSX Cybersecurity Fundamentals Certificate</h4>
       <p>Geared toward recent post-secondary graduates and career changers. Does not expire or require recertification.</p>
     </div>
+</div></div></section><section class="slide" id="t5-2-2" data-index="9"><div class="slide-scroll"><div class="tiny-label">5.2.2</div><h3>Professional Certifications — Advancing Your Career</h3><p>Once you've got a foothold, these certifications mark the next stages of a cybersecurity career:</p>
+<div class="card-grid ">
 <div class="concept-card">
       <div class="icon">4</div>
       <h4>CompTIA Security+</h4>
@@ -414,16 +514,7 @@ footer{padding-top:0;background:var(--bg-elev);}
       <h4>Cisco Certified CyberOps Associate</h4>
       <p>Validates the skills required of associate-level cybersecurity analysts working in security operations centers.</p>
     </div>
-</div>
-    </div>
-  </div>
-</div>
-<div class="content-block reveal" id="t5-2-2">
-  <div class="wrap">
-    <div class="body-col">
-      <div class="tiny-label">5.2.3</div>
-      <h3>Cybersecurity Career Pathways</h3>
-      <div class="callout info">
+</div></div></section><section class="slide" id="t5-2-3" data-index="10"><div class="slide-scroll"><div class="tiny-label">5.2.3</div><h3>Cybersecurity Career Pathways</h3><div class="callout info">
   <div class="glyph">i</div>
   <div class="ctext"><div class="clabel">Explore your options</div><p>CyberSeek is a tool that provides detailed data about supply and demand in the cybersecurity job market — a useful starting point for understanding where the skills gap is largest, and where your next role might fit.</p></div>
 </div>
@@ -432,37 +523,16 @@ footer{padding-top:0;background:var(--bg-elev);}
   <div class="qtext">You're a recent graduate with no prior industry experience, looking for your very first cybersecurity certification. Which is the better starting point?</div>
   <div class="qoptions"><button class="qoption" data-correct="false" onclick="qcheck(this, false)">ISC2 CISSP</button><button class="qoption" data-correct="true" onclick="qcheck(this, true)">ISACA CSX Cybersecurity Fundamentals Certificate</button><button class="qoption" data-correct="false" onclick="qcheck(this, false)">Cisco Certified CyberOps Associate (senior track)</button></div>
   <div class="qexplain"><b>Why:</b> CISSP requires five years of industry experience, so it isn't accessible yet. The ISACA CSX Cybersecurity Fundamentals Certificate is aimed specifically at recent graduates and career changers, with no expiration or recertification requirement.</div>
-</div>
-    </div>
-  </div>
-</div>
-
-<section id="summary">
-  <div class="wrap">
-    <div class="shead reveal">
-      <div class="eyebrow">Module Recap</div>
-      <h2>What You Learned</h2>
-    </div>
-    <div class="reveal"><div class="summary-grid">
+</div></div></section><section class="slide" id="summary" data-index="11"><div class="slide-scroll"><div class="eyebrow">Module Recap (1/2)</div><h2>What You Learned</h2><div class="summary-grid">
 <div class="summary-item"><div class="chk">&#10003;</div><p>Cybersecurity professionals need many of the same skills as attackers, but must use them within the bounds of the law.</p></div>
 <div class="summary-item"><div class="chk">&#10003;</div><p>Personal legal issues arise when skills are misused, even informally; corporate legal issues arise when an organization fails to meet the cybersecurity laws of the countries it operates in.</p></div>
 <div class="summary-item"><div class="chk">&#10003;</div><p>International cybersecurity law is still evolving, complicated by the borderless nature of cyberspace.</p></div>
 <div class="summary-item"><div class="chk">&#10003;</div><p>Ethical decision-making means checking an action against legality, policy, stakeholder impact, and how it would look publicly.</p></div>
+</div></div></section><section class="slide" id="summary-1" data-index="12"><div class="slide-scroll"><div class="eyebrow">Module Recap (2/2)</div><h2>What You Learned</h2><div class="summary-grid">
 <div class="summary-item"><div class="chk">&#10003;</div><p>Professional bodies like ISSA publish Codes of Ethics, and organizations like Cisco maintain their own Code of Business Conduct.</p></div>
 <div class="summary-item"><div class="chk">&#10003;</div><p>Certifications such as CompTIA Security+, CEH, CISSP, and Cisco Certified CyberOps Associate mark different stages of a cybersecurity career.</p></div>
 <div class="summary-item"><div class="chk">&#10003;</div><p>Tools like CyberSeek help you understand supply and demand in the cybersecurity job market as you plan your next step.</p></div>
-</div></div>
-  </div>
-</section>
-
-<section id="terms" class="tight">
-  <div class="wrap">
-    <div class="shead reveal">
-      <div class="eyebrow">Vocabulary</div>
-      <h2>Key Terms &amp; Commands</h2>
-      <p class="lede">Make sure each of these terms rings a bell before you move on. Hover to review, or search the term online for a deeper dive.</p>
-    </div>
-    <div class="reveal"><div class="terms-grid">
+</div></div></section><section class="slide" id="terms" data-index="13"><div class="slide-scroll"><div class="eyebrow">Vocabulary</div><h2>Key Terms &amp; Commands</h2><p class="lede">Make sure each of these terms rings a bell before you move on.</p><div class="terms-grid">
 <span>Personal Legal Issues</span>
 <span>Corporate Legal Issues</span>
 <span>International Cybersecurity Law</span>
@@ -475,98 +545,195 @@ footer{padding-top:0;background:var(--bg-elev);}
 <span>ISC2 CISSP</span>
 <span>Cisco Certified CyberOps Associate</span>
 <span>CyberSeek</span>
-</div></div>
-  </div>
-</section>
-
-<section class="tight" style="border-bottom:none;">
-  <div class="wrap">
-    <div class="modnav">
-      <a href="module4.html" class="modnav prev">
-        <div class="direction">← Previous Module</div>
+</div></div></section><section class="slide center-slide" id="finish" data-index="14"><div class="slide-scroll"><div class="eyebrow">Nice work</div><h2>Module Complete</h2><p class="hero-sub">You&rsquo;ve reached the end of this module. Revisit any slide from the menu, or continue on.</p><div class="modnav" style="margin-top:22px;"><a href="module4.html" class="modnav prev">
+        <div class="direction">&larr; Previous Module</div>
         <div class="mtitle">Module 4: Protecting the Organization</div>
-      </a>
-      <a href="index.html" class="modnav next">
+      </a><a href="index.html" class="modnav next">
         <div class="direction">Finished all modules?</div>
-        <div class="mtitle">Return to Course Home →</div>
-      </a>
-    </div>
+        <div class="mtitle">Return to Course Home &rarr;</div>
+      </a></div></div></section>
+</div>
+
+<div class="slide-controls">
+  <div class="sc-progress"><div class="sc-progress-fill" id="scFill" style="width:6.67%"></div></div>
+  <div class="sc-group">
+    <button class="sc-btn" id="scPrev" disabled>&larr; <span class="label">Prev</span></button>
+    <span class="sc-count" id="scCount">1 / 15</span>
+    <button class="sc-btn primary" id="scNext"><span class="label">Next</span> &rarr;</button>
   </div>
-</section>
+  <div class="sc-group">
+    <a href="index.html" class="sc-btn"><span class="label">Home</span> 🏠</a>
+    <button class="sc-btn" id="slideMenuBtn">&#9776; <span class="label">Slides</span></button>
+  </div>
+</div>
+
+<div class="slidemenu-overlay" id="slideMenuOverlay"></div>
+<div class="slidemenu-panel" id="slideMenu">
+  <div class="slidemenu-head"><h4>All Slides</h4><button class="slidemenu-close" id="slideMenuCloseBtn">&times;</button></div>
+  <div class="slidemenu"><a href="#" data-slide="0" class="">Start Here</a><a href="#" data-slide="1" class="">Agenda</a><a href="#" data-slide="2" class="">5.1 Legal and Ethical Issues</a><a href="#" data-slide="3" class="indent">Legal Issues in Cybersecurity</a><a href="#" data-slide="4" class="indent">Ethical Issues in Cybersecurity</a><a href="#" data-slide="5" class="indent">Codes of Ethics</a><a href="#" data-slide="6" class="">5.2 Education and Careers</a><a href="#" data-slide="7" class="indent">Become a Cybersecurity Guru</a><a href="#" data-slide="8" class="indent">Professional Certifications — Getting Started</a><a href="#" data-slide="9" class="indent">Professional Certifications — Advancing Your Career</a><a href="#" data-slide="10" class="indent">Cybersecurity Career Pathways</a><a href="#" data-slide="11" class="">What You Learned (1/2)</a><a href="#" data-slide="12" class="">What You Learned (2/2)</a><a href="#" data-slide="13" class="">Key Terms</a><a href="#" data-slide="14" class="">Module Complete</a></div>
+</div>
 
 </main>
-
-<footer>
-  <div class="foot-cta">
-    <div class="wrap">
-      <div class="eyebrow" style="justify-content:center;">Keep going</div>
-      <h2>Five modules. One safer you.</h2>
-      <p>Work through each module in order, try the quick-check questions, and revisit the glossary whenever a term feels unfamiliar.</p>
-      <div class="hero-ctas">
-        <a href="index.html" class="btn btn-primary">← Back to Course Home</a>
-      </div>
-    </div>
-  </div>
-  <div class="wrap foot-cols">
-    <div>
-      <h4>Introduction to Cybersecurity</h4>
-      <p style="max-width:360px;">A five-module foundations course covering personal data, common attacks, privacy defenses, organizational security, and career pathways in cybersecurity.</p>
-    </div>
-    <div>
-      <h4>Modules</h4>
-      <a href="module1.html">1. The World of Cybersecurity</a>
-      <a href="module2.html">2. Attacks, Concepts & Techniques</a>
-      <a href="module3.html">3. Protecting Data & Privacy</a>
-      <a href="module4.html">4. Protecting the Organization</a>
-      <a href="module5.html">5. Your Future in Cybersecurity</a>
-    </div>
-    <div>
-      <h4>Study Tools</h4>
-      <a href="index.html#about">About this course</a>
-      <a href="module1.html#terms">Key terms glossary</a>
-      <a href="module1.html#summary">Module summaries</a>
-    </div>
-  </div>
-  <div class="wrap foot-bottom">
-    <span>Training material adapted for classroom &amp; self-study use.</span>
-    <span>Introduction to Cybersecurity — Student Edition</span>
-  </div>
-</footer>
-
+<script>window.__topicIndex = {"t5-1": 2, "t5-2": 6};</script>
 <script>
-// Top progress bar
 const topbar = document.getElementById('topbar');
-function updateBar(){
-  const h = document.documentElement;
-  const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-  if(topbar) topbar.style.width = (isFinite(scrolled)?scrolled:0) + '%';
-}
-document.addEventListener('scroll', updateBar);
-updateBar();
+const deck = document.querySelector('.slide-deck');
 
-// Reveal on scroll
-const observer = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
-},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+if(!deck){
+  // ---- Regular scrolling page (course home) ----
+  function updateBar(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    if(topbar) topbar.style.width = (isFinite(scrolled)?scrolled:0) + '%';
+  }
+  document.addEventListener('scroll', updateBar);
+  updateBar();
 
-// Scroll-spy for TOC
-const tocLinks = document.querySelectorAll('.toc-list a[data-spy]');
-if(tocLinks.length){
-  const targets = Array.from(tocLinks).map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-  const spy = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      const id = '#'+entry.target.id;
-      const link = document.querySelector('.toc-list a[href="'+id+'"]');
-      if(!link) return;
-      if(entry.isIntersecting){
-        tocLinks.forEach(l=>l.style.background='');
-        link.style.background='rgba(255,255,255,.09)';
-        link.style.color = '#fff';
-      }
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+  const tocLinks = document.querySelectorAll('.toc-list a[data-spy]');
+  if(tocLinks.length){
+    const targets = Array.from(tocLinks).map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id = '#'+entry.target.id;
+        const link = document.querySelector('.toc-list a[href="'+id+'"]');
+        if(!link) return;
+        if(entry.isIntersecting){
+          tocLinks.forEach(l=>l.style.background='');
+          link.style.background='rgba(255,255,255,.09)';
+          link.style.color = '#fff';
+        }
+      });
+    },{rootMargin:'-20% 0px -70% 0px'});
+    targets.forEach(t=>spy.observe(t));
+  }
+} else {
+  // ---- Slide-deck page (module pages) ----
+  document.documentElement.classList.add('slidemode');
+  const headerEl = document.querySelector('header');
+  function setHeaderH(){
+    if(headerEl) document.documentElement.style.setProperty('--header-h', headerEl.offsetHeight + 'px');
+  }
+  setHeaderH();
+  window.addEventListener('resize', setHeaderH);
+
+  const slides = Array.from(deck.querySelectorAll('.slide'));
+  const total = slides.length;
+  let idx = 0;
+
+  const counterEl = document.getElementById('scCount');
+  const fillEl = document.getElementById('scFill');
+  const btnPrev = document.getElementById('scPrev');
+  const btnNext = document.getElementById('scNext');
+  const menuLinks = Array.from(document.querySelectorAll('.slidemenu a[data-slide]'));
+  const menuPanel = document.getElementById('slideMenu');
+  const menuOverlay = document.getElementById('slideMenuOverlay');
+  const menuBtn = document.getElementById('slideMenuBtn');
+
+  function checkOverflow(s){
+    const body = s.querySelector('.slide-scroll');
+    if(!body) return;
+    const overflowing = body.scrollHeight > body.clientHeight + 6;
+    s.classList.toggle('has-overflow', overflowing);
+    body.classList.toggle('fits', !overflowing);
+  }
+
+  function go(i){
+    i = Math.max(0, Math.min(total - 1, i));
+    slides[idx].classList.remove('active');
+    idx = i;
+    const s = slides[idx];
+    s.classList.add('active');
+    s.querySelector('.slide-scroll').scrollTop = 0;
+    if(counterEl) counterEl.textContent = (idx+1) + ' / ' + total;
+    if(fillEl) fillEl.style.width = ((idx+1)/total*100) + '%';
+    if(btnPrev) btnPrev.disabled = idx === 0;
+    if(btnNext) btnNext.disabled = (idx === total - 1) && !deck.dataset.nextHref;
+    if(btnNext) btnNext.querySelector('.label').textContent = (idx === total - 1 && deck.dataset.nextHref) ? deck.dataset.nextLabel : 'Next';
+    menuLinks.forEach(a=>a.classList.remove('current'));
+    const cur = menuLinks.find(a=>parseInt(a.dataset.slide,10)===idx);
+    if(cur){ cur.classList.add('current'); cur.scrollIntoView({block:'nearest'}); }
+    history.replaceState(null, '', '#' + (s.id || ('slide-'+(idx+1))));
+    requestAnimationFrame(()=>checkOverflow(s));
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=>checkOverflow(s)); }
+  }
+
+  function next(){
+    if(idx < total - 1){ go(idx+1); }
+    else if(deck.dataset.nextHref){ window.location.href = deck.dataset.nextHref; }
+  }
+  function prev(){ if(idx > 0) go(idx-1); }
+
+  if(btnNext) btnNext.addEventListener('click', next);
+  if(btnPrev) btnPrev.addEventListener('click', prev);
+
+  function closeMenu(){
+    if(menuPanel) menuPanel.classList.remove('open');
+    if(menuOverlay) menuOverlay.classList.remove('open');
+  }
+  function openMenu(){
+    if(menuPanel) menuPanel.classList.add('open');
+    if(menuOverlay) menuOverlay.classList.add('open');
+  }
+  if(menuBtn) menuBtn.addEventListener('click', ()=>{
+    if(menuPanel && menuPanel.classList.contains('open')) closeMenu(); else openMenu();
+  });
+  if(menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+  menuLinks.forEach(a=>{
+    a.addEventListener('click', (e)=>{ e.preventDefault(); go(parseInt(a.dataset.slide,10)); closeMenu(); });
+  });
+
+  document.querySelectorAll('[data-goto]').forEach(el=>{
+    el.addEventListener('click', (e)=>{ e.preventDefault(); go(parseInt(el.dataset.goto,10)); });
+  });
+  const topicIndex = window.__topicIndex || {};
+  document.querySelectorAll('[data-goto-topic]').forEach(el=>{
+    el.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const i = topicIndex[el.dataset.gotoTopic];
+      if(i !== undefined) go(i);
     });
-  },{rootMargin:'-20% 0px -70% 0px'});
-  targets.forEach(t=>spy.observe(t));
+  });
+
+  document.addEventListener('keydown', (e)=>{
+    const tag = (e.target && e.target.tagName) || '';
+    if(tag === 'INPUT' || tag === 'TEXTAREA') return;
+    if(e.key === 'Escape'){ closeMenu(); return; }
+    if(menuPanel && menuPanel.classList.contains('open')) return;
+    if(e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey)){
+      e.preventDefault(); next();
+    } else if(e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey)){
+      e.preventDefault(); prev();
+    } else if(e.key === 'Home'){ e.preventDefault(); go(0); }
+    else if(e.key === 'End'){ e.preventDefault(); go(total-1); }
+  });
+
+  let touchX = null, touchY = null;
+  deck.addEventListener('touchstart', (e)=>{ touchX = e.touches[0].clientX; touchY = e.touches[0].clientY; }, {passive:true});
+  deck.addEventListener('touchend', (e)=>{
+    if(touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    if(Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5){ dx < 0 ? next() : prev(); }
+    touchX = null; touchY = null;
+  }, {passive:true});
+
+  let startIdx = 0;
+  const hash = location.hash.replace('#','');
+  if(hash){
+    const bySlideNum = hash.match(/^slide-(\d+)$/);
+    if(bySlideNum){ startIdx = parseInt(bySlideNum[1],10) - 1; }
+    else {
+      const byId = slides.findIndex(s=>s.id === hash);
+      if(byId >= 0) startIdx = byId;
+    }
+  }
+  go(startIdx);
+  window.addEventListener('resize', ()=>checkOverflow(slides[idx]));
 }
 
 // Quick-check quiz interaction
@@ -582,5 +749,9 @@ function qcheck(btn, correct){
   if(explain) explain.classList.add('show');
 }
 </script>
+<script>document.getElementById('slideMenuCloseBtn').addEventListener('click', function(){
+  document.getElementById('slideMenu').classList.remove('open');
+  document.getElementById('slideMenuOverlay').classList.remove('open');
+});</script>
 </body>
 </html>
